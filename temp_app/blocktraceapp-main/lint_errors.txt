@@ -1,0 +1,86 @@
+
+> blocktrace-app@0.0.0 lint
+> eslint .
+
+
+C:\Users\USER\Downloads\New folder (2)\blocktrace app\src\pages\Dashboard.tsx
+  36:49  error  Error: Cannot call impure function during render
+
+`Math.random` is an impure function. Calling an impure function can produce unstable results that update unpredictably when the component happens to re-render. (https://react.dev/reference/rules/components-and-hooks-must-be-pure#components-and-hooks-must-be-idempotent).
+
+C:\Users\USER\Downloads\New folder (2)\blocktrace app\src\pages\Dashboard.tsx:36:49
+  34 |                     key={i}
+  35 |                     animate={{
+> 36 |                         x: Math.sin(i) * 100 + (Math.random() * 20 - 10),
+     |                                                 ^^^^^^^^^^^^^ Cannot call impure function
+  37 |                         y: Math.cos(i) * 100 + (Math.random() * 20 - 10),
+  38 |                         scale: [1, 1.2, 1],
+  39 |                         opacity: [0.5, 1, 0.5]                                                                                                                                                                                                         react-hooks/purity
+  37:49  error  Error: Cannot call impure function during render
+
+`Math.random` is an impure function. Calling an impure function can produce unstable results that update unpredictably when the component happens to re-render. (https://react.dev/reference/rules/components-and-hooks-must-be-pure#components-and-hooks-must-be-idempotent).
+
+C:\Users\USER\Downloads\New folder (2)\blocktrace app\src\pages\Dashboard.tsx:37:49
+  35 |                     animate={{
+  36 |                         x: Math.sin(i) * 100 + (Math.random() * 20 - 10),
+> 37 |                         y: Math.cos(i) * 100 + (Math.random() * 20 - 10),
+     |                                                 ^^^^^^^^^^^^^ Cannot call impure function
+  38 |                         scale: [1, 1.2, 1],
+  39 |                         opacity: [0.5, 1, 0.5]
+  40 |                     }}                                                                                                                                                                                                              react-hooks/purity
+  42:39  error  Error: Cannot call impure function during render
+
+`Math.random` is an impure function. Calling an impure function can produce unstable results that update unpredictably when the component happens to re-render. (https://react.dev/reference/rules/components-and-hooks-must-be-pure#components-and-hooks-must-be-idempotent).
+
+C:\Users\USER\Downloads\New folder (2)\blocktrace app\src\pages\Dashboard.tsx:42:39
+  40 |                     }}
+  41 |                     transition={{
+> 42 |                         duration: 2 + Math.random() * 2,
+     |                                       ^^^^^^^^^^^^^ Cannot call impure function
+  43 |                         repeat: Infinity,
+  44 |                         repeatType: 'reverse'
+  45 |                     }}                                                                                                                                                                                                                                                                                            react-hooks/purity
+  48:36  error  Error: Cannot call impure function during render
+
+`Math.random` is an impure function. Calling an impure function can produce unstable results that update unpredictably when the component happens to re-render. (https://react.dev/reference/rules/components-and-hooks-must-be-pure#components-and-hooks-must-be-idempotent).
+
+C:\Users\USER\Downloads\New folder (2)\blocktrace app\src\pages\Dashboard.tsx:48:36
+  46 |                     style={{
+  47 |                         position: 'absolute',
+> 48 |                         width: 8 + Math.random() * 10,
+     |                                    ^^^^^^^^^^^^^ Cannot call impure function
+  49 |                         height: 8 + Math.random() * 10,
+  50 |                         background: i % 3 === 0 ? 'var(--accent-glow)' : 'var(--primary-glow)',
+  51 |                         boxShadow: `0:0 10px ${i % 3 === 0 ? 'var(--accent-glow)' : 'var(--primary-glow)'}`,                                                                                                                         react-hooks/purity
+  49:37  error  Error: Cannot call impure function during render
+
+`Math.random` is an impure function. Calling an impure function can produce unstable results that update unpredictably when the component happens to re-render. (https://react.dev/reference/rules/components-and-hooks-must-be-pure#components-and-hooks-must-be-idempotent).
+
+C:\Users\USER\Downloads\New folder (2)\blocktrace app\src\pages\Dashboard.tsx:49:37
+  47 |                         position: 'absolute',
+  48 |                         width: 8 + Math.random() * 10,
+> 49 |                         height: 8 + Math.random() * 10,
+     |                                     ^^^^^^^^^^^^^ Cannot call impure function
+  50 |                         background: i % 3 === 0 ? 'var(--accent-glow)' : 'var(--primary-glow)',
+  51 |                         boxShadow: `0:0 10px ${i % 3 === 0 ? 'var(--accent-glow)' : 'var(--primary-glow)'}`,
+  52 |                         borderRadius: '50%'                                                                                                         react-hooks/purity
+  72:24  error  Error: Calling setState synchronously within an effect can trigger cascading renders
+
+Effects are intended to synchronize state between React and external systems such as manually updating the DOM, state management libraries, or other platform APIs. In general, the body of an effect should do one or both of the following:
+* Update external systems with the latest state from React.
+* Subscribe for updates from some external system, calling setState in a callback function when external state changes.
+
+Calling setState synchronously within an effect body causes cascading renders that can hurt performance, and is not recommended. (https://react.dev/learn/you-might-not-need-an-effect).
+
+C:\Users\USER\Downloads\New folder (2)\blocktrace app\src\pages\Dashboard.tsx:72:24
+  70 |
+  71 |     useEffect(() => {
+> 72 |         if (sessionId) setData(get_dashboard_state(sessionId) as any);
+     |                        ^^^^^^^ Avoid calling setState() directly within an effect
+  73 |     }, [sessionId]);
+  74 |
+  75 |     useEffect(() => {  react-hooks/set-state-in-effect
+  72:66  error  Unexpected any. Specify a different type                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           @typescript-eslint/no-explicit-any
+
+✖ 7 problems (7 errors, 0 warnings)
+

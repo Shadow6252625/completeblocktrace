@@ -1,0 +1,1871 @@
+﻿<html lang="en" class="antialiased dark scroll-smooth">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BlockTrace - The Truth Engine | Home</title>
+  <meta name="description"
+    content="The decentralized verification layer for the digital world. Trace assets, validate transactions, and ensure trust with BlockTrace.">
+  <!-- Favicon (embedded SVG) -->
+  <link rel="icon" type="image/svg+xml"
+    href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cdefs%3E%3CradialGradient id='bg' cx='50%25' cy='50%25'%3E%3Cstop offset='0%25' stop-color='%23050505'/%3E%3Cstop offset='100%25' stop-color='%230a0a0a'/%3E%3C/radialGradient%3E%3ClinearGradient id='blueGlow' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%2300d4ff' stop-opacity='1'/%3E%3Cstop offset='100%25' stop-color='%230099cc' stop-opacity='0.9'/%3E%3C/linearGradient%3E%3ClinearGradient id='orangeGlow' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%23ff6b35' stop-opacity='1'/%3E%3Cstop offset='100%25' stop-color='%23ff8c42' stop-opacity='0.9'/%3E%3C/linearGradient%3E%3Cfilter id='glow'%3E%3CfeGaussianBlur stdDeviation='1' result='coloredBlur'/%3E%3CfeMerge%3E%3CfeMergeNode in='coloredBlur'/%3E%3CfeMergeNode in='SourceGraphic'/%3E%3C/feMerge%3E%3C/filter%3E%3C/defs%3E%3Crect width='100' height='100' fill='url(%23bg)'/%3E%3Ccircle cx='50' cy='50' r='48' fill='none' stroke='url(%23blueGlow)' stroke-width='2' opacity='0.8' filter='url(%23glow)'/%3E%3Ccircle cx='50' cy='50' r='45' fill='none' stroke='url(%23blueGlow)' stroke-width='1' opacity='0.6'/%3E%3Cpath d='M 75 25 Q 50 50, 25 75' fill='none' stroke='url(%23orangeGlow)' stroke-width='2.5' stroke-linecap='round' filter='url(%23glow)' opacity='0.9'/%3E%3Cpath d='M 30 20 L 30 80 M 30 20 L 50 20 Q 60 20, 60 30 Q 60 40, 50 40 L 30 40 M 50 40 Q 60 40, 60 50 Q 60 60, 50 60 L 30 60 M 50 60 Q 60 60, 60 70 Q 60 80, 50 80 L 30 80' fill='none' stroke='url(%23blueGlow)' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' filter='url(%23glow)'/%3E%3Ccircle cx='30' cy='20' r='2' fill='%2300d4ff' filter='url(%23glow)'/%3E%3Ccircle cx='30' cy='50' r='2' fill='%2300d4ff' filter='url(%23glow)'/%3E%3Ccircle cx='30' cy='80' r='2' fill='%2300d4ff' filter='url(%23glow)'/%3E%3C/svg%3E" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+  <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
+  <style>
+    body {
+      background-color: #050505;
+      color: #e5e5e5;
+    }
+
+    /* Grid Background - Dark Mode */
+    .grid-lines {
+      background-image: linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+      background-size: 33.33% 100%;
+    }
+
+    /* Shared Style for Gradient Border Buttons */
+    [style*="--border-gradient"]::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      padding: 1px;
+      border-radius: var(--border-radius-before, inherit);
+      -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+      -webkit-mask-composite: xor;
+      mask-composite: exclude;
+      mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+      mask-composite: exclude;
+      background: var(--border-gradient);
+      pointer-events: none;
+    }
+
+    /* Animation Keyframe */
+    @keyframes animationIn {
+      0% {
+        opacity: 0;
+        transform: translateY(30px);
+        filter: blur(8px);
+      }
+
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+        filter: blur(0px);
+      }
+    }
+
+    /* Default: paused */
+    .animate-on-scroll {
+      animation-play-state: paused !important;
+    }
+
+    /* Activated by JS */
+    .animate-on-scroll.animate {
+      animation-play-state: running !important;
+    }
+
+    /* Dashboard Styles */
+    /* Reveal Animation */
+    @keyframes reveal {
+      0% {
+        opacity: 0;
+        filter: blur(8px);
+        transform: translateY(20px) scale(0.98);
+      }
+
+      100% {
+        opacity: 1;
+        filter: blur(0);
+        transform: translateY(0) scale(1);
+      }
+    }
+
+    .animate-reveal {
+      animation: reveal 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) both;
+    }
+
+    .delay-100 {
+      animation-delay: 100ms;
+    }
+
+    .delay-200 {
+      animation-delay: 200ms;
+    }
+
+    .delay-300 {
+      animation-delay: 300ms;
+    }
+
+    .delay-400 {
+      animation-delay: 400ms;
+    }
+
+    .delay-500 {
+      animation-delay: 500ms;
+    }
+
+    .delay-600 {
+      animation-delay: 600ms;
+    }
+
+    /* Marquee Animation */
+    @keyframes scroll {
+      0% {
+        transform: translateX(0);
+      }
+
+      100% {
+        transform: translateX(-50%);
+      }
+    }
+
+    .marquee-container {
+      overflow: hidden;
+      white-space: nowrap;
+      mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+    }
+
+    .marquee-content {
+      display: inline-flex;
+      animation: scroll 40s linear infinite;
+    }
+
+    .marquee-content:hover {
+      animation-play-state: paused;
+    }
+
+    /* Chart Bar Reflection Effect */
+    .bar-reflection {
+      mask-image: linear-gradient(to bottom, black 20%, transparent 100%);
+    }
+
+    /* Pattern Overlay for Cards */
+    .pattern-grid {
+      background-image: radial-gradient(#38bdf8 1px, transparent 1px);
+      background-size: 24px 24px;
+      opacity: 0.07;
+    }
+
+    .scan-line {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 2px;
+      background: rgba(56, 189, 248, 0.5);
+      box-shadow: 0 0 10px rgba(56, 189, 248, 0.8);
+      animation: scan 4s linear infinite;
+      z-index: 20;
+    }
+
+    @keyframes scan {
+      0% {
+        top: 0%;
+        opacity: 0;
+      }
+
+      10% {
+        opacity: 1;
+      }
+
+      90% {
+        opacity: 1;
+      }
+
+      100% {
+        top: 100%;
+        opacity: 0;
+      }
+    }
+
+    /* Dashboard Section Styles */
+    #dashboard-section {
+      display: none;
+      position: fixed;
+      inset: 0;
+      z-index: 9999;
+      background: #050505;
+      width: 100vw;
+      height: 100vh;
+      overflow: hidden;
+    }
+
+    #dashboard-section.show {
+      display: flex !important;
+      align-items: center;
+      justify-content: center;
+    }
+
+    #app-frame {
+      width: 100%;
+      height: 100%;
+      border: none;
+      background: #050505;
+      z-index: 2;
+    }
+
+    #main-content.hide {
+      display: none !important;
+    }
+  </style>
+  <script>
+    function showDashboard() {
+      const dashboard = document.getElementById('dashboard-section');
+      const mainContent = document.getElementById('main-content');
+      const iframe = document.getElementById('app-frame');
+
+      if (dashboard && mainContent && iframe) {
+        dashboard.classList.add('show');
+        mainContent.classList.add('hide');
+
+        // Latest versioned file
+        iframe.src = './app/index_v3.html';
+
+        window.scrollTo(0, 0);
+        document.body.style.overflow = 'hidden';
+      }
+    }
+
+    function showMainPage() {
+      const dashboard = document.getElementById('dashboard-section');
+      const mainContent = document.getElementById('main-content');
+      const iframe = document.getElementById('app-frame');
+
+      if (dashboard && mainContent) {
+        dashboard.classList.remove('show');
+        mainContent.classList.remove('hide');
+
+        // Completely stop the iframe to prevent background resource usage or glitches
+        if (iframe) iframe.src = 'about:blank';
+
+        window.scrollTo(0, 0);
+        document.body.style.overflow = '';
+      }
+    }
+  </script>
+  <script>
+    /* Sequence animation on scroll when visible */
+    (function () {
+      const once = true;
+      if (!window.__inViewIO) {
+        window.__inViewIO = new IntersectionObserver((entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("animate");
+              if (once) window.__inViewIO.unobserve(entry.target);
+            }
+          });
+        }, { threshold: 0.1, rootMargin: "0px 0px -5% 0px" });
+      }
+      window.initInViewAnimations = function (selector = ".animate-on-scroll") {
+        document.querySelectorAll(selector).forEach((el) => {
+          window.__inViewIO.observe(el);
+        });
+      };
+      document.addEventListener("DOMContentLoaded", () => initInViewAnimations());
+    })();
+  </script>
+  <link id="all-fonts-link-font-geist" rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700&display=swap">
+  <style id="all-fonts-style-font-geist">
+    .font-geist {
+      font-family: 'Geist', sans-serif !important;
+    }
+  </style>
+  <link id="all-fonts-link-font-roboto" rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;600;700&display=swap">
+  <style id="all-fonts-style-font-roboto">
+    .font-roboto {
+      font-family: 'Roboto', sans-serif !important;
+    }
+  </style>
+  <link id="all-fonts-link-font-montserrat" rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap">
+  <style id="all-fonts-style-font-montserrat">
+    .font-montserrat {
+      font-family: 'Montserrat', sans-serif !important;
+    }
+  </style>
+  <link id="all-fonts-link-font-poppins" rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap">
+  <style id="all-fonts-style-font-poppins">
+    .font-poppins {
+      font-family: 'Poppins', sans-serif !important;
+    }
+  </style>
+  <link id="all-fonts-link-font-playfair" rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;900&display=swap">
+  <style id="all-fonts-style-font-playfair">
+    .font-playfair {
+      font-family: 'Playfair Display', serif !important;
+    }
+  </style>
+  <link id="all-fonts-link-font-instrument-serif" rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Instrument+Serif:wght@400;500;600;700&display=swap">
+  <style id="all-fonts-style-font-instrument-serif">
+    .font-instrument-serif {
+      font-family: 'Instrument Serif', serif !important;
+    }
+  </style>
+  <link id="all-fonts-link-font-merriweather" rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400;700;900&display=swap">
+  <style id="all-fonts-style-font-merriweather">
+    .font-merriweather {
+      font-family: 'Merriweather', serif !important;
+    }
+  </style>
+  <link id="all-fonts-link-font-bricolage" rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@300;400;500;600;700&display=swap">
+  <style id="all-fonts-style-font-bricolage">
+    .font-bricolage {
+      font-family: 'Bricolage Grotesque', sans-serif !important;
+    }
+  </style>
+  <link id="all-fonts-link-font-jakarta" rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap">
+  <style id="all-fonts-style-font-jakarta">
+    .font-jakarta {
+      font-family: 'Plus Jakarta Sans', sans-serif !important;
+    }
+  </style>
+  <link id="all-fonts-link-font-manrope" rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&display=swap">
+  <style id="all-fonts-style-font-manrope">
+    .font-manrope {
+      font-family: 'Manrope', sans-serif !important;
+    }
+  </style>
+  <link id="all-fonts-link-font-space-grotesk" rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap">
+  <style id="all-fonts-style-font-space-grotesk">
+    .font-space-grotesk {
+      font-family: 'Space Grotesk', sans-serif !important;
+    }
+  </style>
+  <link id="all-fonts-link-font-work-sans" rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@300;400;500;600;700;800&display=swap">
+  <style id="all-fonts-style-font-work-sans">
+    .font-work-sans {
+      font-family: 'Work Sans', sans-serif !important;
+    }
+  </style>
+  <link id="all-fonts-link-font-pt-serif" rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=PT+Serif:wght@400;700&display=swap">
+  <style id="all-fonts-style-font-pt-serif">
+    .font-pt-serif {
+      font-family: 'PT Serif', serif !important;
+    }
+  </style>
+  <link id="all-fonts-link-font-geist-mono" rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Geist+Mono:wght@300;400;500;600;700&display=swap">
+  <style id="all-fonts-style-font-geist-mono">
+    .font-geist-mono {
+      font-family: 'Geist Mono', monospace !important;
+    }
+  </style>
+  <link id="all-fonts-link-font-space-mono" rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap">
+  <style id="all-fonts-style-font-space-mono">
+    .font-space-mono {
+      font-family: 'Space Mono', monospace !important;
+    }
+  </style>
+  <link id="all-fonts-link-font-quicksand" rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap">
+  <style id="all-fonts-style-font-quicksand">
+    .font-quicksand {
+      font-family: 'Quicksand', sans-serif !important;
+    }
+  </style>
+  <link id="all-fonts-link-font-nunito" rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;500;600;700;800&display=swap">
+  <style id="all-fonts-style-font-nunito">
+    .font-nunito {
+      font-family: 'Nunito', sans-serif !important;
+    }
+  </style>
+  <link id="all-fonts-link-font-newsreader" rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400..800&display=swap">
+  <style id="all-fonts-style-font-newsreader">
+    .font-newsreader {
+      font-family: 'Newsreader', serif !important;
+    }
+  </style>
+  <link id="all-fonts-link-font-google-sans-flex" rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Google+Sans+Flex:wght@400;500;600;700&display=swap">
+  <style id="all-fonts-style-font-google-sans-flex">
+    .font-google-sans-flex {
+      font-family: 'Google Sans Flex', sans-serif !important;
+    }
+  </style>
+  <link id="all-fonts-link-font-oswald" rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;600;700&display=swap">
+  <style id="all-fonts-style-font-oswald">
+    .font-oswald {
+      font-family: 'Oswald', sans-serif !important;
+    }
+  </style>
+  <link id="all-fonts-link-font-dm-sans" rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&display=swap">
+  <style id="all-fonts-style-font-dm-sans">
+    .font-dm-sans {
+      font-family: 'DM Sans', sans-serif !important;
+    }
+  </style>
+  <style id="border-gradient-shared-style">
+    [style*="--border-gradient"]::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      padding: 1px;
+      border-radius: var(--border-radius-before, inherit);
+      -webkit-mask: linear-gradient(#fff 0 0) content-box,
+        linear-gradient(#fff 0 0);
+      -webkit-mask-composite: xor;
+      mask-composite: exclude;
+      mask: linear-gradient(#fff 0 0) content-box,
+        linear-gradient(#fff 0 0);
+      mask-composite: exclude;
+      background: var(--border-gradient);
+      pointer-events: none;
+    }
+  </style>
+</head>
+
+<body class="min-h-screen overflow-x-hidden selection:bg-white/20 selection:text-white pt-32 relative">
+
+
+
+
+  <!-- Video Background -->
+  <div class="fixed top-0 left-0 w-full h-full -z-20 pointer-events-none overflow-hidden">
+    <video autoplay loop muted playsinline class="w-full h-full object-cover opacity-50">
+      <source src="asset/original-afeef85e73922a8fb2897fda1de5cc23.mp4" type="video/mp4">
+    </video>
+    <!-- Dark overlay to ensure text readability -->
+    <div class="absolute inset-0 bg-[#050505]/40"></div>
+  </div>
+  <div class="fixed inset-0 z-0 pointer-events-none overflow-hidden" aria-hidden="true">
+    <div class="absolute -top-[20%] -left-[10%] w-[50%] h-[50%] rounded-full bg-purple-500/10 blur-[120px]"></div>
+    <div class="absolute top-[10%] -right-[10%] w-[40%] h-[50%] rounded-full bg-pink-500/10 blur-[120px]"></div>
+    <div class="absolute -bottom-[20%] left-[20%] w-[50%] h-[50%] rounded-full bg-blue-500/10 blur-[120px]"></div>
+  </div>
+
+  <!-- Background Grid Lines -->
+  <div
+    class="fixed inset-0 pointer-events-none z-0 mx-auto max-w-7xl grid-lines hidden md:block border-r border-l border-white/[0.03]">
+  </div>
+
+  <!-- Main Content Wrapper -->
+  <div id="main-content">
+    <!-- Floating Glass Pill Navigation -->
+    <div
+      class="fixed top-6 left-0 right-0 z-50 flex justify-center px-4 animate-on-scroll [animation:animationIn_0.8s_ease-out_0s_both] animate">
+      <nav
+        class="flex md:gap-12 bg-neutral-950 w-full h-14 max-w-5xl border-white/10 border rounded-full mr-auto ml-auto pr-3 pl-6 shadow-lg backdrop-blur-xl gap-x-6 gap-y-6 items-center justify-between">
+        <!-- Logo acts as Home Link -->
+        <a href="#" class="flex items-center gap-2 hover:opacity-80 transition-opacity">
+
+          <span class="text-lg font-bold text-white tracking-tight w-[50px] h-[50px] bg-cover bg-center"
+            style="background-image: url('https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/bd095906-b125-4635-b47f-1d677849369f_320w.png');"></span><span
+            class="text-lg font-bold text-white tracking-tight">
+            BlockTrace
+          </span>
+        </a>
+
+        <div class="hidden md:flex items-center gap-8 text-sm font-medium text-neutral-400">
+          <a href="#protocol" class="hover:text-white transition-colors">
+            Protocol
+          </a>
+          <a href="#explorer" class="hover:text-white transition-colors">
+            Explorer
+          </a>
+          <a href="#governance" class="hover:text-white transition-colors">
+            Governance
+          </a>
+        </div>
+
+        <div class="flex items-center gap-3 text-sm font-medium">
+          <a href="https://x.com/blocktrace_x"
+            class="hidden sm:block hover:text-white text-neutral-400 pr-3 pl-3 transition-colors" aria-label="X"
+            target="_blank" rel="noopener noreferrer">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor"
+              class="w-4 h-4">
+              <path
+                d="M18.901 1.153h3.68l-8.04 9.19L24 22.846h-7.406l-5.8-7.584-6.638 7.584H.474l8.6-9.83L0 1.154h7.594l5.243 6.932ZM17.61 20.644h2.039L6.486 3.24H4.298Z">
+              </path>
+            </svg>
+          </a>
+
+          <!-- Dark Mode Gradient Pill Button -->
+          <a href="#" onclick="showDashboard(); return false;"
+            class="group hover:scale-105 active:scale-95 hover:bg-white/20 transition-all duration-300 flex cursor-pointer text-sm font-medium text-neutral-200 bg-gradient-to-b from-white/30 via-white/0 to-white/10 rounded-full pt-2 pr-4 pb-2 pl-4 shadow-[0px_1px_0px_0px_rgba(255,255,255,0.1)_inset] gap-x-2 items-center"
+            style="position: relative; --border-gradient: linear-gradient(180deg, rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.1)); --border-radius-before: 9999px"
+            role="button">
+            <span class="text-xs font-semibold tracking-tight">Launch App</span>
+            <iconify-icon icon="lucide:arrow-right" width="14" height="14"
+              class="text-neutral-400 transition-transform duration-300 group-hover:translate-x-1"></iconify-icon>
+          </a>
+        </div>
+      </nav>
+    </div>
+
+    <!-- Main Content -->
+    <main class="z-10 max-w-7xl mr-auto ml-auto pt-12 pr-6 pb-32 pl-6 relative">
+      <!-- Hero Header -->
+      <div class="text-center max-w-5xl mr-auto mb-24 ml-auto">
+        <div
+          class="animate-on-scroll [animation:animationIn_0.8s_ease-out_0.2s_both] inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/5 border border-white/10 text-neutral-300 text-xs font-semibold mb-8 animate">
+          <span class="flex h-2 w-2 rounded-full bg-emerald-500 shadow-[0_0_10px_rgba(16,185,129,0.5)]"></span>
+          Mainnet Beta Live
+        </div>
+
+        <h1
+          class="animate-on-scroll [animation:animationIn_0.8s_ease-out_0.3s_both] md:text-8xl leading-[1] animate text-7xl font-medium text-white tracking-tight mb-8"
+          style="mask-image: linear-gradient(270deg, transparent, black 30%, black 75%, transparent); -webkit-mask-image: linear-gradient(270deg, transparent, black 30%, black 75%, transparent);">
+          The truth engine of the
+          <br class="hidden md:block">
+          digital world.
+        </h1>
+
+        <p
+          class="animate-on-scroll [animation:animationIn_0.8s_ease-out_0.4s_both] md:text-2xl leading-relaxed text-xl font-light text-neutral-400 max-w-2xl mr-auto mb-12 ml-auto tracking-tight">
+          A transparent verification layer for decentralized ecosystems. Trace
+          every block, transaction, and data point to its origin.
+        </p>
+
+        <div
+          class="animate-on-scroll [animation:animationIn_0.8s_ease-out_0.5s_both] flex flex-col sm:flex-row gap-4 group max-w-2xl mx-auto relative items-center justify-center">
+
+          <!-- Launch App Button -->
+          <button onclick="showDashboard(); return false;"
+            class="group flex overflow-hidden transition-all duration-300 hover:from-white/25 hover:via-white/15 hover:to-white/10 focus:ring-2 focus:ring-white/20 focus:outline-none sm:w-auto bg-gradient-to-b from-white/20 via-white/5 to-white/15 w-full h-[52px] rounded-full pt-3 pr-8 pb-3 pl-8 relative gap-x-2 items-center justify-center shadow-2xl"
+            style="box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.1), 0 8px 32px rgba(0, 0, 0, 0.4); position: relative; --border-gradient: linear-gradient(180deg, rgba(255, 255, 255, 0.4), rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.1)); --border-radius-before: 9999px">
+            <span
+              class="text-sm font-bold tracking-tight relative z-10 text-white group-hover:scale-105 transition-transform">
+              Launch App
+            </span>
+            <iconify-icon icon="lucide:arrow-right" width="18" height="18"
+              class="relative z-10 text-white/80 group-hover:translate-x-1 transition-transform"></iconify-icon>
+          </button>
+
+          <div
+            class="flex-1 flex items-center bg-[#161616] border border-white/10 rounded-full px-2 py-1 focus-within:ring-1 focus-within:ring-white/20 focus-within:border-white/20 transition-all shadow-lg h-[52px] w-full sm:w-auto">
+            <input type="text" placeholder="Trace hash or wallet..."
+              class="w-full bg-transparent border-none outline-none placeholder:text-neutral-600 pl-4 text-white font-mono text-sm">
+            <button class="p-2 hover:bg-white/5 rounded-full text-white/60 hover:text-white transition-colors">
+              <iconify-icon icon="lucide:search" width="20" height="20"></iconify-icon>
+            </button>
+          </div>
+        </div>
+
+        <div
+          class="animate-on-scroll [animation:animationIn_0.8s_ease-out_0.6s_both] mt-8 flex items-center justify-center gap-2 text-sm text-neutral-500 font-medium">
+          <iconify-icon icon="lucide:shield-check" width="16" height="16" class="text-neutral-500"></iconify-icon>
+          <span>Audited Smart Contracts &amp; Immutable Ledger</span>
+        </div>
+      </div>
+
+      <!-- Dashboard / Bento Grid -->
+      <div class="relative grid grid-cols-1 md:grid-cols-12 gap-6 lg:gap-8 mt-16 mb-16 min-h-[500px] z-10"
+        id="explorer">
+        <!-- Floating Label 01 -->
+        <div
+          class="animate-on-scroll [animation:animationIn_0.8s_ease-out_0.6s_both] absolute -left-12 top-0 text-xs font-mono text-neutral-700 hidden xl:block">
+          01
+        </div>
+
+        <!-- Arrow SVG Left -->
+        <svg
+          class="animate-on-scroll [animation:animationIn_0.8s_ease-out_0.6s_both] absolute -left-12 -top-16 w-32 h-32 text-neutral-700 hidden lg:block"
+          viewBox="0 0 100 100" fill="none" stroke="currentColor">
+          <path d="M80 80 C 40 80, 20 60, 20 20" stroke-width="1" stroke-dasharray="4 4" marker-end="url(#arrowhead)">
+          </path>
+          <defs>
+            <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="0" refY="3.5" orient="auto">
+              <polygon points="0 0, 10 3.5, 0 7" fill="currentColor"></polygon>
+            </marker>
+          </defs>
+        </svg>
+        <span
+          class="animate-on-scroll [animation:animationIn_0.8s_ease-out_0.7s_both] absolute -left-20 -top-20 text-sm text-neutral-600 font-handwriting hidden lg:block rotate-[-10deg]">
+          Live Mempool
+        </span>
+
+        <!-- LEFT COLUMN (Calendar & Shortcuts) -->
+        <div class="md:col-span-4 flex flex-col gap-6">
+          <!-- Calendar Card -->
+          <div
+            class="animate-on-scroll [animation:animationIn_0.8s_ease-out_0.5s_both] bg-[#0C0D0F] rounded-[2rem] p-8 border border-white/5 relative overflow-hidden group hover:border-white/10 transition-colors">
+            <div class="flex justify-between items-start mb-6">
+              <div
+                class="px-3 py-1 bg-white/5 rounded-full border border-white/5 text-xs text-neutral-400 font-semibold uppercase tracking-wider flex items-center gap-1.5">
+                <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
+                Live Feed
+              </div>
+              <button class="text-neutral-600 hover:text-neutral-300 transition-colors">
+                <iconify-icon icon="lucide:refresh-ccw" width="16" height="16"></iconify-icon>
+              </button>
+            </div>
+
+            <div class="flex items-center gap-3 mb-3">
+              <div class="w-5 h-5 rounded-full bg-white/10 flex items-center justify-center">
+                <iconify-icon icon="lucide:box" width="12" height="12" class="text-white"></iconify-icon>
+              </div>
+              <span class="text-sm text-neutral-400 font-medium">
+                Block #18,293,102
+              </span>
+            </div>
+
+            <h3 class="text-2xl text-white mb-2 font-medium font-mono tracking-tight">
+              0x7f...3a92
+            </h3>
+            <p class="text-base text-neutral-500 mb-8 font-medium">
+              Verified by 12,402 Nodes
+            </p>
+
+            <div class="border-t border-white/5 pt-5 flex items-center justify-between">
+              <div class="flex -space-x-3">
+                <div
+                  class="w-10 h-10 rounded-full bg-[#1A1A1A] border-[3px] border-[#0C0D0F] flex items-center justify-center">
+                  <iconify-icon icon="simple-icons:ethereum" class="text-neutral-400" width="16"></iconify-icon>
+                </div>
+                <div
+                  class="w-10 h-10 rounded-full bg-[#1A1A1A] border-[3px] border-[#0C0D0F] flex items-center justify-center">
+                  <iconify-icon icon="simple-icons:polygon" class="text-neutral-400" width="16"></iconify-icon>
+                </div>
+                <div
+                  class="w-10 h-10 rounded-full bg-[#1A1A1A] border-[3px] border-[#0C0D0F] flex items-center justify-center text-xs text-neutral-500 font-mono">
+                  +8
+                </div>
+              </div>
+              <button
+                class="bg-white/5 text-white hover:bg-white/10 text-xs px-4 py-2 rounded-full font-semibold transition-colors border border-white/5">
+                Details
+              </button>
+            </div>
+          </div>
+
+          <!-- Shortcuts Card -->
+          <div
+            class="animate-on-scroll [animation:animationIn_0.8s_ease-out_0.6s_both] bg-[#0C0D0F] rounded-[2rem] p-6 border border-white/5 flex items-center justify-between hover:border-white/10 transition-colors">
+            <div class="">
+              <div class="text-base font-semibold text-white">
+                Global Search
+              </div>
+              <div class="text-sm text-neutral-500 mt-1 font-medium">
+                Press
+                <span class="bg-white/10 px-1.5 py-0.5 rounded text-neutral-300 font-mono text-xs">
+                  Cmd + K
+                </span>
+                to verify
+              </div>
+            </div>
+            <div class="flex gap-2">
+              <button
+                class="w-12 h-12 rounded-2xl bg-white/5 border border-white/5 flex items-center justify-center text-neutral-400 hover:bg-white/10 hover:text-white transition-colors">
+                <iconify-icon icon="lucide:search" width="20" height="20"></iconify-icon>
+              </button>
+              <button
+                class="w-12 h-12 rounded-2xl bg-white/5 border border-white/5 flex items-center justify-center text-neutral-400 hover:bg-white/10 hover:text-white transition-colors">
+                <iconify-icon icon="lucide:scan-line" width="20" height="20"></iconify-icon>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- MIDDLE COLUMN (Stat Card) -->
+        <div class="md:col-span-3 relative">
+          <!-- Floating Label 02 -->
+          <div
+            class="animate-on-scroll [animation:animationIn_0.8s_ease-out_0.6s_both] absolute -top-10 left-0 text-xs font-mono text-neutral-700 hidden xl:block">
+            02
+          </div>
+
+          <div
+            class="animate-on-scroll [animation:animationIn_0.8s_ease-out_0.7s_both] h-full bg-[#0C0D0F] rounded-[2.5rem] p-8 border border-white/5 flex flex-col justify-between relative overflow-hidden group">
+            <div class="relative z-10">
+              <div class="flex items-center gap-2 mb-4 opacity-80">
+                <iconify-icon icon="lucide:activity" class="text-white" width="16"></iconify-icon>
+                <span class="text-xs font-bold uppercase tracking-wider text-neutral-400">
+                  Total Value Traced
+                </span>
+              </div>
+              <h2 class="text-5xl lg:text-6xl text-white leading-none font-medium tracking-tight">
+                $42B+
+              </h2>
+            </div>
+
+            <div class="relative z-10 mt-12">
+              <div class="flex mb-6 space-x-1.5">
+                <div class="h-1.5 w-8 bg-neutral-800 rounded-full"></div>
+                <div class="h-1.5 w-8 bg-neutral-700 rounded-full"></div>
+                <div class="h-1.5 w-12 bg-emerald-500 rounded-full shadow-[0_0_10px_rgba(16,185,129,0.4)]"></div>
+              </div>
+              <p class="text-xl text-neutral-200 leading-snug font-semibold tracking-tight">
+                Immutable lineage for every digital asset.
+              </p>
+              <p class="text-sm text-neutral-500 mt-3 font-medium">
+                Real-time on-chain metrics.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- RIGHT COLUMN (Stacked Cards) -->
+        <div
+          class="animate-on-scroll [animation:animationIn_0.8s_ease-out_0.8s_both] md:col-span-5 relative flex items-center justify-center bg-white/[0.02] rounded-[2.5rem] border border-white/5 border-dashed">
+          <!-- Floating Label 03 -->
+          <div class="absolute -top-10 right-0 text-xs font-mono text-neutral-700 hidden xl:block">
+            03
+          </div>
+
+          <!-- Arrow SVG Right -->
+          <svg class="absolute -right-12 -top-12 w-32 h-32 text-neutral-700 hidden lg:block rotate-90"
+            viewBox="0 0 100 100" fill="none" stroke="currentColor">
+            <path d="M20 80 C 60 80, 80 60, 80 20" stroke-width="1" stroke-dasharray="4 4" marker-end="url(#arrowhead)">
+            </path>
+          </svg>
+          <span
+            class="absolute -right-16 -top-16 text-sm text-neutral-600 font-handwriting hidden lg:block rotate-[10deg]">
+            Cross-chain
+          </span>
+
+          <div class="relative w-full max-w-sm h-80 flex items-center justify-center scale-95 md:scale-100">
+            <!-- Card 3 (Back) -->
+            <div
+              class="absolute top-0 left-8 right-8 h-56 bg-[#1A1A1A] rounded-3xl border border-white/5 shadow-sm opacity-60 scale-90 translate-y-6 -z-20 flex p-6">
+              <div class="flex items-center gap-2 text-neutral-500">
+                <iconify-icon icon="simple-icons:solana" width="18" height="18"
+                  style="filter: grayscale(100%);"></iconify-icon>
+                <span class="text-xs font-semibold">Solana</span>
+              </div>
+            </div>
+
+            <!-- Card 2 (Middle) -->
+            <div
+              class="absolute top-5 left-4 right-4 h-60 bg-[#1A1A1A] rounded-3xl border border-white/10 shadow-sm opacity-90 scale-95 translate-y-3 -z-10 p-6">
+              <div class="flex items-center gap-2 mb-4">
+                <iconify-icon icon="simple-icons:ethereum" width="18" height="18"
+                  class="text-neutral-500"></iconify-icon>
+                <span class="text-xs font-bold text-neutral-200">Ethereum</span>
+              </div>
+              <div class="h-2.5 w-2/3 bg-white/10 rounded-full mb-3"></div>
+              <div class="h-2.5 w-1/2 bg-white/10 rounded-full"></div>
+            </div>
+
+            <!-- Card 1 (Front) -->
+            <div
+              class="absolute top-10 left-0 right-0 bg-[#0C0D0F] rounded-3xl border border-white/10 shadow-xl p-8 z-10">
+              <div class="flex items-center gap-3 mb-5">
+                <div class="p-1.5 rounded-lg bg-white/5 text-neutral-300">
+                  <iconify-icon icon="lucide:box-select" width="18" height="18"></iconify-icon>
+                </div>
+                <span class="text-sm font-bold text-neutral-200">
+                  BlockTrace
+                </span>
+                <span
+                  class="ml-auto text-[10px] text-emerald-500 font-bold bg-emerald-500/10 px-2 py-1 rounded-full uppercase tracking-wider">
+                  Verified
+                </span>
+              </div>
+
+              <div class="space-y-4">
+                <div class="">
+                  <p class="text-xs text-neutral-500 font-semibold mb-1.5 uppercase tracking-wide">
+                    Transaction Status
+                  </p>
+                  <p class="text-lg font-semibold text-neutral-100 leading-tight font-mono">
+                    0x918...3e21 Confirmed
+                  </p>
+                </div>
+
+                <div class="pt-4 border-t border-white/5">
+                  <div class="flex items-center gap-4">
+                    <div class="flex items-center text-neutral-500 text-xs font-semibold">
+                      <iconify-icon icon="lucide:calendar" class="mr-2 text-neutral-600" width="14"></iconify-icon>
+                      Block 19.4M
+                    </div>
+                    <div class="flex items-center text-neutral-500 text-xs font-semibold">
+                      <iconify-icon icon="lucide:clock" class="mr-2 text-neutral-600" width="14"></iconify-icon>
+                      12s ago
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <!-- Footer Logos (Monotone) -->
+    <div
+      class="animate-on-scroll [animation:animationIn_0.8s_ease-out_0.9s_both] border-t border-white/5 bg-[#050505]/40 backdrop-blur-sm">
+      <div class="max-w-7xl mr-auto ml-auto pt-16 pr-6 pb-16 pl-6">
+        <p class="text-center text-xs text-neutral-600 font-bold tracking-widest mb-10 uppercase">
+          Verified by Nodes at
+        </p>
+        <div
+          class="flex flex-wrap gap-8 md:gap-16 hover:grayscale-0 hover:opacity-100 transition-all duration-500 opacity-40 grayscale gap-x-12 gap-y-8 items-center justify-center">
+          <iconify-icon icon="simple-icons:ethereum" height="32" class="text-white"></iconify-icon>
+          <iconify-icon icon="simple-icons:binance" height="26" class="text-white"></iconify-icon>
+          <iconify-icon icon="simple-icons:chainlink" height="26" class="text-white"></iconify-icon>
+          <iconify-icon icon="simple-icons:coinbase" height="28" class="text-white"></iconify-icon>
+          <iconify-icon icon="simple-icons:polygon" height="26" class="text-white"></iconify-icon>
+        </div>
+      </div>
+    </div>
+    <div class="relative border-b border-white/5 bg-transparent" id="governance">
+      <!-- Vertical Container Lines -->
+      <div
+        class="absolute inset-y-0 left-0 right-0 mx-auto max-w-7xl border-l border-r border-white/5 pointer-events-none z-0 hidden md:block">
+        <!-- Inner Column Dividers -->
+        <div class="absolute left-1/3 top-0 bottom-0 w-px bg-white/5 hidden md:block"></div>
+        <div class="absolute right-1/3 top-0 bottom-0 w-px bg-white/5 hidden md:block"></div>
+      </div>
+
+      <div class="max-w-7xl mx-auto px-6 py-24 relative z-10">
+        <!-- Section Header -->
+        <div class="text-center max-w-3xl mx-auto mb-20">
+          <div
+            class="animate-on-scroll [animation:animationIn_0.8s_ease-out_0.2s_both] inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/5 border border-white/10 text-neutral-300 text-xs font-medium mb-8">
+            Mission
+          </div>
+
+          <h2
+            class="animate-on-scroll [animation:animationIn_0.8s_ease-out_0.3s_both] md:text-6xl text-4xl font-medium text-white mb-6 tracking-tight">
+            A Global Verification Framework
+          </h2>
+
+          <p
+            class="animate-on-scroll [animation:animationIn_0.8s_ease-out_0.4s_both] text-lg text-neutral-400 font-light leading-relaxed max-w-xl mx-auto">
+            Transparency, trust, and traceability form the foundation of every
+            digital interaction on the BlockTrace protocol.
+          </p>
+        </div>
+
+        <!-- 3-Column Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-0">
+          <!-- Column 1: Visible Asset Lineage -->
+          <div class="animate-on-scroll [animation:animationIn_0.8s_ease-out_0.5s_both] relative md:px-8 group">
+            <!-- Visual -->
+            <div
+              class="h-64 w-full bg-[#0A0A0A] rounded-2xl border border-white/5 mb-8 flex flex-col items-center justify-center relative overflow-hidden">
+              <!-- Background Grid -->
+              <div
+                class="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:14px_24px]">
+              </div>
+
+              <!-- Floating Card UI -->
+              <div
+                class="relative z-10 w-48 bg-[#0F0F0F] rounded-lg border border-white/10 shadow-2xl p-4 flex flex-col gap-3 transition-transform duration-500 group-hover:-translate-y-2">
+                <div class="flex items-center justify-between mb-1">
+                  <div class="w-2 h-2 rounded-full bg-white/20"></div>
+                  <div class="text-[10px] font-mono text-neutral-500">
+                    Hash: 0x82...
+                  </div>
+                </div>
+                <div class="flex items-center gap-1">
+                  <div class="h-6 w-6 rounded bg-neutral-800 flex items-center justify-center border border-white/5">
+                    <iconify-icon icon="lucide:link" class="text-neutral-500" width="12"></iconify-icon>
+                  </div>
+                  <div class="h-px w-4 bg-neutral-700"></div>
+                  <div class="h-6 w-6 rounded bg-neutral-800 flex items-center justify-center border border-white/5">
+                    <iconify-icon icon="lucide:box" class="text-neutral-500" width="12"></iconify-icon>
+                  </div>
+                  <div class="h-px w-4 bg-neutral-700"></div>
+                  <div class="h-6 w-6 rounded bg-neutral-800 flex items-center justify-center border border-white/5">
+                    <iconify-icon icon="lucide:user" class="text-neutral-500" width="12"></iconify-icon>
+                  </div>
+                </div>
+
+                <!-- Success Pill -->
+                <div
+                  class="mt-2 self-center bg-white/5 border border-white/10 rounded-full px-3 py-1 flex items-center gap-1.5">
+                  <iconify-icon icon="lucide:check-circle" class="text-white text-xs"></iconify-icon>
+                  <span class="text-[10px] font-medium text-neutral-300">
+                    Origin Verified
+                  </span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Content -->
+            <div class="text-center md:text-left">
+              <h3 class="text-lg font-semibold text-white mb-3">
+                Visible Asset Lineage
+              </h3>
+              <p class="text-sm text-neutral-400 leading-relaxed">
+                A connected world where every asset and contract carries a
+                visible history. Authenticate data points back to their genesis
+                block.
+              </p>
+            </div>
+          </div>
+
+          <!-- Column 2: Decentralized Trust -->
+          <div class="animate-on-scroll [animation:animationIn_0.8s_ease-out_0.6s_both] relative md:px-8 group">
+            <!-- Visual -->
+            <div
+              class="h-64 w-full bg-[#0A0A0A] rounded-2xl border border-white/5 mb-8 flex items-center justify-center relative overflow-hidden">
+              <div
+                class="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-white/5 via-transparent to-transparent opacity-50">
+              </div>
+
+              <!-- Network Shape -->
+              <div
+                class="relative z-10 w-24 h-24 flex items-center justify-center transition-transform duration-500 group-hover:scale-110">
+                <svg viewBox="0 0 100 100"
+                  class="absolute inset-0 w-full h-full text-white/10 drop-shadow-[0_0_15px_rgba(255,255,255,0.05)]">
+                  <circle cx="50" cy="50" r="40" fill="none" stroke="currentColor" stroke-dasharray="4 4"></circle>
+                  <circle cx="50" cy="10" r="2" fill="currentColor"></circle>
+                  <circle cx="90" cy="50" r="2" fill="currentColor"></circle>
+                  <circle cx="50" cy="90" r="2" fill="currentColor"></circle>
+                  <circle cx="10" cy="50" r="2" fill="currentColor"></circle>
+                </svg>
+
+                <iconify-icon icon="lucide:globe" class="text-white text-3xl relative z-20"></iconify-icon>
+              </div>
+            </div>
+
+            <!-- Content -->
+            <div class="text-center md:text-left">
+              <h3 class="text-lg font-semibold text-white mb-3">
+                Decentralized Trust
+              </h3>
+              <p class="text-sm text-neutral-400 leading-relaxed">
+                Follow the flow of information through every node and chain.
+                Ensure integrity across the entire ecosystem without centralized
+                intermediaries.
+              </p>
+            </div>
+          </div>
+
+          <!-- Column 3: Instant Accountability -->
+          <div class="animate-on-scroll [animation:animationIn_0.8s_ease-out_0.7s_both] relative md:px-8 group">
+            <!-- Visual -->
+            <div
+              class="h-64 w-full bg-[#0A0A0A] rounded-2xl border border-white/5 mb-8 flex items-end justify-center pb-8 px-8 relative overflow-hidden">
+              <div class="absolute top-0 right-0 p-4">
+                <div class="text-center">
+                  <div class="text-2xl font-semibold text-white tracking-tight">
+                    100%
+                  </div>
+                  <div class="text-[10px] text-neutral-500 font-medium uppercase tracking-wide">
+                    Uptime
+                  </div>
+                </div>
+              </div>
+
+              <!-- Chart -->
+              <svg class="w-full h-32 overflow-visible" preserveAspectRatio="none">
+                <!-- Gradient Fill -->
+                <defs>
+                  <linearGradient id="chartGradient" x1="0" x2="0" y1="0" y2="1">
+                    <stop offset="0%" stop-color="white" stop-opacity="0.1"></stop>
+                    <stop offset="100%" stop-color="transparent" stop-opacity="0"></stop>
+                  </linearGradient>
+                </defs>
+                <path d="M0 120 L 50 100 L 100 105 L 150 60 L 200 20" fill="url(#chartGradient)" stroke="none"></path>
+                <!-- Line -->
+                <path d="M0 120 L 50 100 L 100 105 L 150 60 L 200 20" fill="none" stroke="white" stroke-width="1.5"
+                  stroke-linecap="round" stroke-linejoin="round" class="drop-shadow-[0_0_10px_rgba(255,255,255,0.2)]">
+                </path>
+
+                <!-- Dots -->
+                <circle cx="0" cy="120" r="2" fill="#262626" stroke="white" stroke-width="1.5"></circle>
+                <circle cx="50" cy="100" r="2" fill="#262626" stroke="white" stroke-width="1.5"></circle>
+                <circle cx="100" cy="105" r="2" fill="#262626" stroke="white" stroke-width="1.5"></circle>
+                <circle cx="150" cy="60" r="2" fill="#262626" stroke="white" stroke-width="1.5"></circle>
+                <circle cx="200" cy="20" r="3" fill="#fff"
+                  class="group-hover:scale-150 transition-transform origin-center"></circle>
+
+                <!-- Label -->
+                <rect x="160" y="0" width="60" height="20" rx="4" fill="#fff" fill-opacity="0.1"
+                  stroke="rgba(255,255,255,0.2)"></rect>
+                <text x="190" y="14" font-family="monospace" font-size="10" fill="white" text-anchor="middle">
+                  Audited
+                </text>
+              </svg>
+            </div>
+
+            <!-- Content -->
+            <div class="text-center md:text-left">
+              <h3 class="text-lg font-semibold text-white mb-3">
+                Instant Accountability
+              </h3>
+              <p class="text-sm text-neutral-400 leading-relaxed">
+                Verify data integrity in real-time. BlockTrace acts as an
+                immutable ledger for truth, reducing fraud and increasing
+                accountability.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <section class="relative bg-transparent text-white py-32 overflow-hidden border-b border-white/5" id="protocol">
+        <div class="z-0 opacity-[0.15] absolute top-0 right-0 bottom-0 left-0"
+          style="background-image: radial-gradient(#ffffff 0.5px, transparent 0.5px); background-size: 24px 24px"></div>
+        <div class="z-10 max-w-7xl mr-auto ml-auto pt-6 pr-6 pb-24 pl-6 relative">
+          <div
+            class="flex flex-col md:flex-row justify-between items-start md:items-end mb-24 text-[10px] md:text-xs font-mono text-neutral-500 uppercase tracking-[0.2em] gap-4">
+            <div class="flex items-center gap-2">
+              <span class="text-white">02</span>
+              <span class="w-12 h-px bg-white/10"></span>
+            </div>
+            <div class="text-white/40">// SYSTEM ARCHITECTURE</div>
+            <div class="hidden md:block text-right">PROTOCOL MECHANISM</div>
+          </div>
+          <div class="text-center max-w-6xl mx-auto mb-32 relative">
+            <h2 class="leading-[0.9] md:text-8xl lg:text-8xl text-5xl font-medium text-white mb-8 tracking-tight">
+              The Architecture
+              <span
+                class="transition-colors duration-500 hover:text-white cursor-default text-neutral-600 tracking-tight">
+                of Truth.
+              </span>
+            </h2>
+            <p class="text-lg md:text-xl text-neutral-400 font-light max-w-2xl mx-auto leading-relaxed tracking-tight">
+              A decentralized intelligence protocol designed to ingest, index,
+              and verify cross-chain data at global scale.
+            </p>
+          </div>
+          <div class="hidden md:flex items-center justify-between px-16 mb-16 opacity-20">
+            <div class="w-2 h-2 rounded-full bg-white"></div>
+            <div class="h-px bg-gradient-to-r from-transparent via-white to-transparent w-full"></div>
+            <div class="w-2 h-2 rounded-full bg-white"></div>
+            <div class="h-px bg-gradient-to-r from-transparent via-white to-transparent w-full"></div>
+            <div class="w-2 h-2 rounded-full bg-white"></div>
+          </div>
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-16 md:gap-12 relative">
+            <div class="group relative">
+              <div
+                class="absolute -top-12 left-0 text-xs font-mono text-neutral-700 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                01</div>
+              <div class="flex items-center justify-between mb-8 border-b border-white/5 pb-8">
+                <div class="flex -space-x-3">
+                  <div
+                    class="w-10 h-10 rounded-lg bg-[#0F0F0F] border border-white/10 flex items-center justify-center relative z-10 shadow-lg group-hover:-translate-y-1 transition-transform duration-300">
+                    <iconify-icon icon="lucide:database" class="text-lg text-white"></iconify-icon>
+                  </div>
+                  <div
+                    class="w-10 h-10 rounded-lg bg-[#0F0F0F] border border-white/10 flex items-center justify-center relative z-20 shadow-lg group-hover:-translate-y-1 transition-transform duration-300 delay-75">
+                    <iconify-icon icon="lucide:server" class="text-lg text-white"></iconify-icon>
+                  </div>
+                  <div
+                    class="w-10 h-10 rounded-lg bg-[#0F0F0F] border border-white/10 flex items-center justify-center relative z-30 shadow-lg group-hover:-translate-y-1 transition-transform duration-300 delay-150">
+                    <iconify-icon icon="lucide:search" class="text-lg text-white"></iconify-icon>
+                  </div>
+                </div>
+                <div class="flex gap-1.5 opacity-40">
+                  <div class="w-1 h-1 bg-white rounded-full"></div>
+                  <div class="w-1 h-1 bg-white rounded-full"></div>
+                  <div class="w-1 h-1 bg-white rounded-full"></div>
+                </div>
+              </div>
+              <h3
+                class="text-lg font-bold uppercase tracking-wide text-white mb-3 group-hover:text-emerald-500 transition-colors">
+                Ingest &amp; Index</h3>
+              <p class="text-sm text-neutral-500 font-medium leading-relaxed">Aggregating data from L1s, L2s, and
+                off-chain sources. Our nodes index transactions instantly to create a searchable map of the ecosystem.
+              </p>
+            </div>
+            <div class="group relative">
+              <div
+                class="absolute -top-12 left-0 text-xs font-mono text-neutral-700 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                02</div>
+              <div class="flex items-center justify-between mb-8 border-b border-white/5 pb-8">
+                <div class="flex -space-x-3">
+                  <div
+                    class="w-10 h-10 rounded-lg bg-[#0F0F0F] border border-white/10 flex items-center justify-center relative z-10 shadow-lg group-hover:-translate-y-1 transition-transform duration-300">
+                    <iconify-icon icon="lucide:shield" class="text-lg text-white"></iconify-icon>
+                  </div>
+                  <div
+                    class="w-10 h-10 rounded-lg bg-[#0F0F0F] border border-white/10 flex items-center justify-center relative z-20 shadow-lg group-hover:-translate-y-1 transition-transform duration-300 delay-75">
+                    <iconify-icon icon="lucide:cpu" class="text-lg text-white"></iconify-icon>
+                  </div>
+                  <div
+                    class="w-10 h-10 rounded-lg bg-[#0F0F0F] border border-white/10 flex items-center justify-center relative z-30 shadow-lg group-hover:-translate-y-1 transition-transform duration-300 delay-150">
+                    <iconify-icon icon="lucide:lock" class="text-lg text-white"></iconify-icon>
+                  </div>
+                </div>
+                <div class="flex gap-1.5 opacity-40">
+                  <div class="w-1 h-1 bg-white rounded-full"></div>
+                  <div class="w-1 h-1 bg-white rounded-full"></div>
+                  <div class="w-1 h-1 bg-white rounded-full opacity-30"></div>
+                </div>
+              </div>
+              <h3
+                class="text-lg font-bold uppercase tracking-wide text-white mb-3 group-hover:text-emerald-500 transition-colors">
+                Verify &amp; Validate</h3>
+              <p class="text-sm text-neutral-500 font-medium leading-relaxed">The core consensus mechanism authenticates
+                data integrity. Smart contracts cross-reference hashes to ensure zero tampering.</p>
+            </div>
+            <div class="group relative">
+              <div
+                class="absolute -top-12 left-0 text-xs font-mono text-neutral-700 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                03</div>
+              <div class="flex items-center justify-between mb-8 border-b border-white/5 pb-8">
+                <div class="flex -space-x-3">
+                  <div
+                    class="w-10 h-10 rounded-lg bg-[#0F0F0F] border border-white/10 flex items-center justify-center relative z-10 shadow-lg group-hover:-translate-y-1 transition-transform duration-300">
+                    <iconify-icon icon="lucide:check-circle" class="text-lg text-white"></iconify-icon>
+                  </div>
+                  <div
+                    class="w-10 h-10 rounded-lg bg-[#0F0F0F] border border-white/10 flex items-center justify-center relative z-20 shadow-lg group-hover:-translate-y-1 transition-transform duration-300 delay-75">
+                    <iconify-icon icon="lucide:share-2" class="text-lg text-white"></iconify-icon>
+                  </div>
+                  <div
+                    class="w-10 h-10 rounded-lg bg-[#0F0F0F] border border-white/10 flex items-center justify-center relative z-30 shadow-lg group-hover:-translate-y-1 transition-transform duration-300 delay-150">
+                    <iconify-icon icon="lucide:globe" class="text-lg text-white"></iconify-icon>
+                  </div>
+                </div>
+                <div class="flex gap-1.5 opacity-40">
+                  <div class="w-1 h-1 bg-white rounded-full"></div>
+                  <div class="w-1 h-1 bg-white rounded-full opacity-30"></div>
+                  <div class="w-1 h-1 bg-white rounded-full opacity-30"></div>
+                </div>
+              </div>
+              <h3
+                class="text-lg font-bold uppercase tracking-wide text-white mb-3 group-hover:text-emerald-500 transition-colors">
+                Trace &amp; Authenticate</h3>
+              <p class="text-sm text-neutral-500 font-medium leading-relaxed">Delivering the final truth. Users query
+                the protocol to receive a verified, immutable lineage for any asset or interaction.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- SECTION: Advanced Capabilities -->
+      <section class="relative bg-transparent text-white py-32 overflow-hidden border-b border-white/5"
+        id="capabilities">
+        <div class="z-10 max-w-7xl mr-auto ml-auto px-6 relative">
+
+          <!-- Section Header -->
+          <div class="flex flex-col items-center text-center mb-20">
+            <div
+              class="animate-on-scroll [animation:animationIn_0.8s_ease-out_0.2s_both] inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/5 border border-white/10 text-neutral-300 text-xs font-medium mb-6">
+              Platform Features
+            </div>
+            <h2
+              class="animate-on-scroll [animation:animationIn_0.8s_ease-out_0.3s_both] md:text-5xl text-4xl font-medium text-white mb-6 tracking-tight">
+              Advanced Analytics & Forensics
+            </h2>
+            <p
+              class="animate-on-scroll [animation:animationIn_0.8s_ease-out_0.4s_both] text-lg text-neutral-400 font-light max-w-2xl mx-auto leading-relaxed">
+              Equip your investigations with enterprise-grade tracing tools. Uncover the entities behind complex,
+              multi-hop transactions across networks.
+            </p>
+          </div>
+
+          <!-- Feature Grid -->
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+
+            <!-- Feature 1 -->
+            <div
+              class="animate-on-scroll [animation:animationIn_0.8s_ease-out_0.4s_both] bg-[#0A0A0A]/60 backdrop-blur-md border border-white/5 rounded-3xl p-8 hover:border-white/10 transition-colors group">
+              <div
+                class="w-12 h-12 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center mb-6 text-white group-hover:scale-110 group-hover:bg-white/10 transition-all duration-300">
+                <iconify-icon icon="lucide:network" class="text-xl"></iconify-icon>
+              </div>
+              <h3 class="text-xl font-semibold text-white mb-3 tracking-tight">AI Entity Resolution</h3>
+              <p class="text-sm text-neutral-400 leading-relaxed font-light">
+                Our machine learning models continuously analyze patterns and cluster addresses to identify exchanges,
+                mixers, and malicious actors in real-time.
+              </p>
+            </div>
+
+            <!-- Feature 2 -->
+            <div
+              class="animate-on-scroll [animation:animationIn_0.8s_ease-out_0.5s_both] bg-[#0A0A0A]/60 backdrop-blur-md border border-white/5 rounded-3xl p-8 hover:border-white/10 transition-colors group">
+              <div
+                class="w-12 h-12 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center mb-6 text-white group-hover:scale-110 group-hover:bg-white/10 transition-all duration-300">
+                <iconify-icon icon="lucide:radar" class="text-xl"></iconify-icon>
+              </div>
+              <h3 class="text-xl font-semibold text-white mb-3 tracking-tight">Live Trace Mapping</h3>
+              <p class="text-sm text-neutral-400 leading-relaxed font-light">
+                Visualize the flow of funds with interactive, multi-layered graphs. Follow assets as they move across
+                bridges and layer-2 networks instantly.
+              </p>
+            </div>
+
+            <!-- Feature 3 -->
+            <div
+              class="animate-on-scroll [animation:animationIn_0.8s_ease-out_0.6s_both] bg-[#0A0A0A]/60 backdrop-blur-md border border-white/5 rounded-3xl p-8 hover:border-white/10 transition-colors group">
+              <div
+                class="w-12 h-12 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center mb-6 text-white group-hover:scale-110 group-hover:bg-white/10 transition-all duration-300">
+                <iconify-icon icon="lucide:shield-alert" class="text-xl"></iconify-icon>
+              </div>
+              <h3 class="text-xl font-semibold text-white mb-3 tracking-tight">Dynamic Risk Scoring</h3>
+              <p class="text-sm text-neutral-400 leading-relaxed font-light">
+                Every transaction and wallet is assigned a real-time risk score based on historical exposure to
+                OFAC-sanctioned entities and known exploits.
+              </p>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      <!-- SECTION: Target Use Cases -->
+      <section class="relative bg-transparent text-white py-32 overflow-hidden border-b border-white/5" id="usecases">
+
+        <!-- Decorative background elements -->
+        <div
+          class="absolute inset-x-0 top-1/2 -translate-y-1/2 h-px bg-gradient-to-r from-transparent via-white/10 to-transparent">
+        </div>
+        <div
+          class="absolute left-1/2 -translate-x-1/2 top-0 bottom-0 w-px bg-gradient-to-b from-transparent via-white/5 to-transparent">
+        </div>
+
+        <div class="z-10 max-w-7xl mr-auto ml-auto px-6 relative">
+
+          <div class="text-left mb-16 md:mb-24 flex flex-col md:flex-row justify-between items-end gap-8">
+            <div class="max-w-2xl">
+              <h2
+                class="animate-on-scroll [animation:animationIn_0.8s_ease-out_0.2s_both] md:text-6xl text-4xl font-medium text-white mb-6 tracking-tight">
+                Built for the absolute standard of trust.
+              </h2>
+            </div>
+            <p
+              class="animate-on-scroll [animation:animationIn_0.8s_ease-out_0.3s_both] text-neutral-400 font-light max-w-md text-sm leading-relaxed">
+              BlockTrace provides specialized APIs and visual dashboards customized to your infrastructure, ensuring
+              compliance and security at scale.
+            </p>
+          </div>
+
+          <!-- Use Cases List -->
+          <div class="space-y-6">
+
+            <!-- Use Case 1 -->
+            <div
+              class="animate-on-scroll [animation:animationIn_0.8s_ease-out_0.4s_both] group relative bg-[#050505]/40 backdrop-blur-md rounded-[2rem] border border-white/5 p-8 md:p-10 flex flex-col md:flex-row items-start md:items-center justify-between gap-8 hover:bg-white/[0.03] transition-colors"
+              style="--border-gradient: linear-gradient(90deg, rgba(255,255,255,0.1), rgba(255,255,255,0)); --border-radius-before: 2rem;">
+              <div class="flex items-center gap-6">
+                <div
+                  class="w-16 h-16 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-white shrink-0 group-hover:scale-105 transition-transform duration-500">
+                  <iconify-icon icon="lucide:arrow-right-left" class="text-2xl"></iconify-icon>
+                </div>
+                <div>
+                  <h3 class="text-2xl font-medium text-white mb-2 tracking-tight">Exchanges & OTC</h3>
+                  <p class="text-neutral-400 text-sm font-light">Comply with Travel Rule requirements and screen
+                    deposits instantaneously.</p>
+                </div>
+              </div>
+              <button
+                class="shrink-0 px-6 py-2.5 rounded-full border border-white/10 text-white text-xs font-semibold hover:bg-white/10 transition-colors flex items-center gap-2">
+                View Solutions <iconify-icon icon="lucide:arrow-right"></iconify-icon>
+              </button>
+            </div>
+
+            <!-- Use Case 2 -->
+            <div
+              class="animate-on-scroll [animation:animationIn_0.8s_ease-out_0.5s_both] group relative bg-[#050505]/40 backdrop-blur-md rounded-[2rem] border border-white/5 p-8 md:p-10 flex flex-col md:flex-row items-start md:items-center justify-between gap-8 hover:bg-white/[0.03] transition-colors"
+              style="--border-gradient: linear-gradient(90deg, rgba(255,255,255,0.1), rgba(255,255,255,0)); --border-radius-before: 2rem;">
+              <div class="flex items-center gap-6">
+                <div
+                  class="w-16 h-16 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-white shrink-0 group-hover:scale-105 transition-transform duration-500">
+                  <iconify-icon icon="lucide:coins" class="text-2xl"></iconify-icon>
+                </div>
+                <div>
+                  <h3 class="text-2xl font-medium text-white mb-2 tracking-tight">DeFi Protocols</h3>
+                  <p class="text-neutral-400 text-sm font-light">Block malicious wallets from interacting with your
+                    smart contracts using our on-chain oracle.</p>
+                </div>
+              </div>
+              <button
+                class="shrink-0 px-6 py-2.5 rounded-full border border-white/10 text-white text-xs font-semibold hover:bg-white/10 transition-colors flex items-center gap-2">
+                View Solutions <iconify-icon icon="lucide:arrow-right"></iconify-icon>
+              </button>
+            </div>
+
+            <!-- Use Case 3 -->
+            <div
+              class="animate-on-scroll [animation:animationIn_0.8s_ease-out_0.6s_both] group relative bg-[#050505]/40 backdrop-blur-md rounded-[2rem] border border-white/5 p-8 md:p-10 flex flex-col md:flex-row items-start md:items-center justify-between gap-8 hover:bg-white/[0.03] transition-colors"
+              style="--border-gradient: linear-gradient(90deg, rgba(255,255,255,0.1), rgba(255,255,255,0)); --border-radius-before: 2rem;">
+              <div class="flex items-center gap-6">
+                <div
+                  class="w-16 h-16 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-white shrink-0 group-hover:scale-105 transition-transform duration-500">
+                  <iconify-icon icon="lucide:scale" class="text-2xl"></iconify-icon>
+                </div>
+                <div>
+                  <h3 class="text-2xl font-medium text-white mb-2 tracking-tight">Law Enforcement</h3>
+                  <p class="text-neutral-400 text-sm font-light">Generate court-ready forensic reports and track stolen
+                    funds across obfuscation layers.</p>
+                </div>
+              </div>
+              <button
+                class="shrink-0 px-6 py-2.5 rounded-full border border-white/10 text-white text-xs font-semibold hover:bg-white/10 transition-colors flex items-center gap-2">
+                View Solutions <iconify-icon icon="lucide:arrow-right"></iconify-icon>
+              </button>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+
+      <section class="md:pb-32 overflow-hidden bg-transparent border-white/5 border-b pb-24 relative">
+        <div class="z-10 max-w-7xl mx-auto px-6 relative">
+          <section class="sm:px-6 lg:px-8 sm:py-10 md:py-12 max-w-7xl mr-auto ml-auto pt-8 pr-4 pb-8 pl-4">
+            <div class="flex items-center justify-between">
+              <div class="space-y-1">
+                <p class="text-xs sm:text-sm text-zinc-400">Trusted by the Network</p>
+                <h2 class="text-2xl sm:text-3xl md:text-4xl tracking-tight font-semibold text-zinc-100">Validator &amp;
+                  Dev Stories</h2>
+              </div>
+              <div class="hidden sm:flex items-center gap-2 text-zinc-400">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                  stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                  data-lucide="terminal" class="lucide lucide-terminal w-4 h-4">
+                  <polyline points="4 17 10 11 4 5"></polyline>
+                  <line x1="12" x2="20" y1="19" y2="19"></line>
+                </svg>
+                <span class="text-sm">Verified On-Chain Feedback</span>
+              </div>
+            </div>
+            <div
+              class="relative mt-6 sm:mt-8 overflow-hidden rounded-2xl sm:rounded-3xl border border-zinc-900 bg-zinc-950">
+              <div
+                class="pointer-events-none absolute inset-y-0 left-0 w-24 sm:w-40 bg-gradient-to-r from-zinc-950 to-transparent z-10">
+              </div>
+              <div
+                class="pointer-events-none absolute inset-y-0 right-0 w-24 sm:w-40 bg-gradient-to-l from-zinc-950 to-transparent z-10">
+              </div>
+              <div class="relative py-6 sm:py-8">
+                <div class="flex gap-4 sm:gap-5 will-change-transform animate-[marquee-ltr_45s_linear_infinite]">
+                  <article
+                    class="shrink-0 w-[280px] sm:w-[360px] md:w-[420px] rounded-2xl border border-zinc-900 bg-zinc-900/40 p-5">
+                    <div class="flex items-center gap-3">
+                      <img
+                        src="https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/e0bbf4a4-5f58-4644-bea6-85d2fef73d4a_320w.jpg"
+                        alt="Avatar" class="size-9 object-cover rounded-full">
+                      <div class="">
+                        <div class="flex items-center gap-1">
+                          <span class="text-sm font-medium text-zinc-100">Alex Chen</span>
+                          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                            data-lucide="badge-check" class="lucide lucide-badge-check w-3.5 h-3.5 text-emerald-500">
+                            <path
+                              d="M3.85 8.62a4 4 0 0 1 4.78-4.77 4 4 0 0 1 6.74 0 4 4 0 0 1 4.78 4.78 4 4 0 0 1 0 6.74 4 4 0 0 1-4.78 4.78 4 4 0 0 1-6.74 0 4 4 0 0 1-4.78-4.77 2 2 0 0 1 0-2.83z">
+                            </path>
+                            <path d="m9 12 2 2 4-4"></path>
+                          </svg>
+                        </div>
+                        <p class="text-xs text-zinc-400">@alex_web3</p>
+                      </div>
+                    </div>
+                    <p class="mt-4 text-sm sm:text-base text-zinc-300">The immutable ledger gives us 100% confidence in
+                      our asset tracking. Integration into our DEX was instant.</p>
+                  </article>
+                  <article
+                    class="shrink-0 w-[280px] sm:w-[360px] md:w-[420px] rounded-2xl border border-zinc-900 bg-zinc-900/40 p-5">
+                    <div class="flex items-center gap-3">
+                      <img
+                        src="https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/27a2c31e-38f3-479f-a831-858e91b9bd84_320w.jpg"
+                        alt="Avatar" class="size-9 object-cover rounded-full">
+                      <div class="">
+                        <div class="flex items-center gap-1">
+                          <span class="text-sm font-medium text-zinc-100">Sarah Jenkins</span>
+                          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                            data-lucide="badge-check" class="lucide lucide-badge-check w-3.5 h-3.5 text-emerald-500">
+                            <path
+                              d="M3.85 8.62a4 4 0 0 1 4.78-4.77 4 4 0 0 1 6.74 0 4 4 0 0 1 4.78 4.78 4 4 0 0 1 0 6.74 4 4 0 0 1-4.78 4.78 4 4 0 0 1-6.74 0 4 4 0 0 1-4.78-4.77 2 2 0 0 1 0-2.83z">
+                            </path>
+                            <path d="m9 12 2 2 4-4"></path>
+                          </svg>
+                        </div>
+                        <p class="text-xs text-zinc-400">@sarah_nodes</p>
+                      </div>
+                    </div>
+                    <p class="mt-4 text-sm sm:text-base text-zinc-300">Running a validator node on BlockTrace is
+                      seamless. The uptime visibility and reward tracking are best-in-class.</p>
+                  </article>
+                  <article
+                    class="shrink-0 w-[280px] sm:w-[360px] md:w-[420px] rounded-2xl border border-zinc-900 bg-zinc-900/40 p-5">
+                    <div class="flex items-center gap-3">
+                      <img
+                        src="https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/86a541ae-1b5d-4597-8538-e55c0858f4ff_320w.jpg"
+                        alt="Avatar" class="size-9 object-cover rounded-full">
+                      <div class="">
+                        <div class="flex items-center gap-1">
+                          <span class="text-sm font-medium text-zinc-100">David Wu</span>
+                          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                            data-lucide="badge-check" class="lucide lucide-badge-check w-3.5 h-3.5 text-emerald-500">
+                            <path
+                              d="M3.85 8.62a4 4 0 0 1 4.78-4.77 4 4 0 0 1 6.74 0 4 4 0 0 1 4.78 4.78 4 4 0 0 1 0 6.74 4 4 0 0 1-4.78 4.78 4 4 0 0 1-6.74 0 4 4 0 0 1-4.78-4.77 2 2 0 0 1 0-2.83z">
+                            </path>
+                            <path d="m9 12 2 2 4-4"></path>
+                          </svg>
+                        </div>
+                        <p class="text-xs text-zinc-400">@dwu_audit</p>
+                      </div>
+                    </div>
+                    <p class="mt-4 text-sm sm:text-base text-zinc-300">Finally, a reliable source of truth for on-chain
+                      data. Our security audits are 2x faster thanks to granular tracing.</p>
+                  </article>
+                  <article
+                    class="shrink-0 w-[280px] sm:w-[360px] md:w-[420px] rounded-2xl border border-zinc-900 bg-zinc-900/40 p-5">
+                    <div class="flex items-center gap-3">
+                      <img
+                        src="https://images.unsplash.com/photo-1544723795-3fb6469f5b39?q=80&w=120&h=120&fit=crop&crop=faces"
+                        alt="Avatar" class="size-9 rounded-full object-cover">
+                      <div>
+                        <div class="flex items-center gap-1">
+                          <span class="text-sm font-medium text-zinc-100">Elena Rodriguez</span>
+                          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                            data-lucide="badge-check" class="lucide lucide-badge-check w-3.5 h-3.5 text-emerald-500">
+                            <path
+                              d="M3.85 8.62a4 4 0 0 1 4.78-4.77 4 4 0 0 1 6.74 0 4 4 0 0 1 4.78 4.78 4 4 0 0 1 0 6.74 4 4 0 0 1-4.78 4.78 4 4 0 0 1-6.74 0 4 4 0 0 1-4.78-4.77 2 2 0 0 1 0-2.83z">
+                            </path>
+                            <path d="m9 12 2 2 4-4"></path>
+                          </svg>
+                        </div>
+                        <p class="text-xs text-zinc-400">@elena_defi</p>
+                      </div>
+                    </div>
+                    <p class="mt-4 text-sm sm:text-base text-zinc-300">We track cross-chain asset movements with zero
+                      latency. BlockTrace is the backbone of our compliance engine.</p>
+                  </article>
+                </div>
+              </div>
+              <div class="border-t border-zinc-900/80"></div>
+              <div class="relative py-6 sm:py-8">
+                <div class="flex gap-4 sm:gap-5 will-change-transform animate-[marquee-rtl_45s_linear_infinite]">
+                  <article
+                    class="shrink-0 w-[280px] sm:w-[360px] md:w-[420px] bg-zinc-900/40 border-zinc-900 border rounded-2xl pt-5 pr-5 pb-5 pl-5">
+                    <div class="flex items-center gap-3">
+                      <img
+                        src="https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/358aaa92-ba50-4778-b2a2-7c8f7310e44c_320w.jpg"
+                        alt="Avatar" class="size-9 object-cover rounded-full">
+                      <div class="">
+                        <div class="flex items-center gap-1">
+                          <span class="text-sm font-medium text-zinc-100">Marcus Johnson</span>
+                          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                            data-lucide="badge-check" class="lucide lucide-badge-check w-3.5 h-3.5 text-emerald-500">
+                            <path
+                              d="M3.85 8.62a4 4 0 0 1 4.78-4.77 4 4 0 0 1 6.74 0 4 4 0 0 1 4.78 4.78 4 4 0 0 1 0 6.74 4 4 0 0 1-4.78 4.78 4 4 0 0 1-6.74 0 4 4 0 0 1-4.78-4.77 2 2 0 0 1 0-2.83z">
+                            </path>
+                            <path d="m9 12 2 2 4-4"></path>
+                          </svg>
+                        </div>
+                        <p class="text-xs text-zinc-400">@marcus_sol</p>
+                      </div>
+                    </div>
+                    <p class="mt-4 text-sm sm:text-base text-zinc-300">The historical data index is comprehensive. We
+                      can trace asset lineage back to genesis without spinning up our own nodes.</p>
+                  </article>
+                  <article
+                    class="shrink-0 w-[280px] sm:w-[360px] md:w-[420px] bg-zinc-900/40 border-zinc-900 border rounded-2xl pt-5 pr-5 pb-5 pl-5">
+                    <div class="flex items-center gap-3">
+                      <img
+                        src="https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/b6d79211-32f1-430e-96b3-9b4d857c1482_320w.jpg"
+                        alt="Avatar" class="size-9 object-cover rounded-full">
+                      <div class="">
+                        <div class="flex items-center gap-1">
+                          <span class="text-sm font-medium text-zinc-100">Jessica Lee</span>
+                          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                            data-lucide="badge-check" class="lucide lucide-badge-check w-3.5 h-3.5 text-emerald-500">
+                            <path
+                              d="M3.85 8.62a4 4 0 0 1 4.78-4.77 4 4 0 0 1 6.74 0 4 4 0 0 1 4.78 4.78 4 4 0 0 1 0 6.74 4 4 0 0 1-4.78 4.78 4 4 0 0 1-6.74 0 4 4 0 0 1-4.78-4.77 2 2 0 0 1 0-2.83z">
+                            </path>
+                            <path d="m9 12 2 2 4-4"></path>
+                          </svg>
+                        </div>
+                        <p class="text-xs text-zinc-400">@jlee_protocol</p>
+                      </div>
+                    </div>
+                    <p class="mt-4 text-sm sm:text-base text-zinc-300">Enterprise-grade reliability for decentralized
+                      protocols. We trust BlockTrace for all our critical verification needs.</p>
+                  </article>
+                  <article
+                    class="shrink-0 w-[280px] sm:w-[360px] md:w-[420px] bg-zinc-900/40 border-zinc-900 border rounded-2xl pt-5 pr-5 pb-5 pl-5">
+                    <div class="flex items-center gap-3">
+                      <img alt="Avatar" class="size-9 object-cover rounded-full"
+                        src="https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/ec17a2e2-e4f4-4164-b631-f074e640a0c1_320w.jpg">
+                      <div class="">
+                        <div class="flex items-center gap-1">
+                          <span class="text-sm font-medium text-zinc-100">Tom Baker</span>
+                          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                            data-lucide="badge-check" class="lucide lucide-badge-check w-3.5 h-3.5 text-emerald-500">
+                            <path
+                              d="M3.85 8.62a4 4 0 0 1 4.78-4.77 4 4 0 0 1 6.74 0 4 4 0 0 1 4.78 4.78 4 4 0 0 1 0 6.74 4 4 0 0 1-4.78 4.78 4 4 0 0 1-6.74 0 4 4 0 0 1-4.78-4.77 2 2 0 0 1 0-2.83z">
+                            </path>
+                            <path d="m9 12 2 2 4-4"></path>
+                          </svg>
+                        </div>
+                        <p class="text-xs text-zinc-400">@tbaker_eth</p>
+                      </div>
+                    </div>
+                    <p class="mt-4 text-sm sm:text-base text-zinc-300">From local dev to prod parity with one
+                      connection. Testing smart contract interactions has never been this smooth.</p>
+                  </article>
+                  <article
+                    class="shrink-0 w-[280px] sm:w-[360px] md:w-[420px] rounded-2xl border border-zinc-900 bg-zinc-900/40 p-5">
+                    <div class="flex items-center gap-3">
+                      <img
+                        src="https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/c0aab170-b3d3-4816-9435-0ac1e1d853a3_320w.jpg"
+                        alt="Avatar" class="size-9 rounded-full object-cover">
+                      <div>
+                        <div class="flex items-center gap-1">
+                          <span class="text-sm font-medium text-zinc-100">Ryan Park</span>
+                          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                            data-lucide="badge-check" class="lucide lucide-badge-check w-3.5 h-3.5 text-emerald-500">
+                            <path
+                              d="M3.85 8.62a4 4 0 0 1 4.78-4.77 4 4 0 0 1 6.74 0 4 4 0 0 1 4.78 4.78 4 4 0 0 1 0 6.74 4 4 0 0 1-4.78 4.78 4 4 0 0 1-6.74 0 4 4 0 0 1-4.78-4.77 2 2 0 0 1 0-2.83z">
+                            </path>
+                            <path d="m9 12 2 2 4-4"></path>
+                          </svg>
+                        </div>
+                        <p class="text-xs text-zinc-400">@rpark_dao</p>
+                      </div>
+                    </div>
+                    <p class="mt-4 text-sm sm:text-base text-zinc-300">Clean API and thoughtful error messages. We built
+                      a custom explorer on top of their indexer in just a weekend.</p>
+                  </article>
+                </div>
+              </div>
+            </div>
+            <style>
+              @keyframes marquee-rtl {
+                0% {
+                  transform: translateX(0);
+                }
+
+                100% {
+                  transform: translateX(-50%);
+                }
+              }
+
+              @keyframes marquee-ltr {
+                0% {
+                  transform: translateX(-50%);
+                }
+
+                100% {
+                  transform: translateX(0);
+                }
+              }
+
+              @media (prefers-reduced-motion: reduce) {
+
+                .animate-\[marquee-rtl_45s_linear_infinite\],
+                .animate-\[marquee-ltr_45s_linear_infinite\] {
+                  animation: none !important;
+                }
+              }
+            </style>
+          </section>
+        </div>
+        <div class="z-10 max-w-7xl mx-auto px-6 relative">
+          <div class="text-center max-w-3xl mx-auto mb-20">
+            <h2
+              class="animate-on-scroll [animation:animationIn_0.8s_ease-out_0.2s_both] text-4xl md:text-5xl font-medium text-white mb-6 tracking-tight">
+              Simple API pricing</h2>
+            <p
+              class="animate-on-scroll [animation:animationIn_0.8s_ease-out_0.3s_both] text-lg text-neutral-400 font-light leading-relaxed">
+              Access the global verification layer. Pay only for the data you verify.</p>
+          </div>
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-8 gap-x-8 gap-y-8">
+            <div
+              class="animate-on-scroll [animation:animationIn_0.8s_ease-out_0.4s_both] p-8 rounded-[2rem] border border-white/5 bg-white/[0.02] flex flex-col relative group hover:border-white/10 transition-colors">
+              <div class="mb-2 text-neutral-300 font-medium tracking-tight">Developer</div>
+              <div class="mb-6 flex items-baseline gap-1">
+                <span class="text-4xl font-semibold text-white tracking-tight">$0</span>
+                <span class="text-neutral-500 font-medium">/mo</span>
+              </div>
+              <p class="text-sm text-neutral-400 mb-8 leading-relaxed">For building and testing dApps on testnets.</p>
+              <button
+                class="w-full py-3 rounded-full border border-white/10 text-white text-sm font-semibold hover:bg-white/5 transition-colors mb-8">Get
+                API Key</button>
+              <div class="space-y-4">
+                <div class="flex items-center gap-3 text-sm text-neutral-400">
+                  <iconify-icon icon="lucide:check" class="text-white/60"></iconify-icon>
+                  <span>100k Calls / month</span>
+                </div>
+                <div class="flex items-center gap-3 text-sm text-neutral-400">
+                  <iconify-icon icon="lucide:check" class="text-white/60"></iconify-icon>
+                  <span>Testnet Access</span>
+                </div>
+                <div class="flex items-center gap-3 text-sm text-neutral-400">
+                  <iconify-icon icon="lucide:check" class="text-white/60"></iconify-icon>
+                  <span>Community Support</span>
+                </div>
+              </div>
+            </div>
+            <div
+              class="animate-on-scroll [animation:animationIn_0.8s_ease-out_0.5s_both] p-8 rounded-[2rem] border border-white/10 bg-[#0A0A0A] flex flex-col relative shadow-2xl">
+              <div
+                class="absolute inset-0 bg-gradient-to-b from-white/5 to-transparent rounded-[2rem] pointer-events-none">
+              </div>
+              <div class="relative z-10">
+                <div class="flex justify-between items-center mb-2">
+                  <div class="text-white font-medium tracking-tight">Protocol</div>
+                  <div class="px-3 py-1 rounded-full bg-white text-[10px] text-black font-bold uppercase tracking-wide">
+                    Mainnet</div>
+                </div>
+                <div class="mb-6 flex items-baseline gap-1">
+                  <span class="text-4xl font-semibold text-white tracking-tight">$299</span>
+                  <span class="text-neutral-500 font-medium">/mo</span>
+                </div>
+                <p class="text-sm text-neutral-400 mb-8 leading-relaxed">For production dApps and validator nodes.</p>
+                <button
+                  class="w-full py-3 rounded-full bg-white text-black text-sm font-semibold hover:bg-neutral-200 transition-colors mb-8 shadow-[0_0_20px_rgba(255,255,255,0.1)]">Start
+                  Tracing</button>
+                <div class="space-y-4">
+                  <div class="flex items-center gap-3 text-sm text-neutral-300">
+                    <iconify-icon icon="lucide:check" class="text-white"></iconify-icon>
+                    <span>5M Calls / month</span>
+                  </div>
+                  <div class="flex items-center gap-3 text-sm text-neutral-300">
+                    <iconify-icon icon="lucide:check" class="text-white"></iconify-icon>
+                    <span>All Mainnets Supported</span>
+                  </div>
+                  <div class="flex items-center gap-3 text-sm text-neutral-300">
+                    <iconify-icon icon="lucide:check" class="text-white"></iconify-icon>
+                    <span>Historical Data Index</span>
+                  </div>
+                  <div class="flex items-center gap-3 text-sm text-neutral-300">
+                    <iconify-icon icon="lucide:check" class="text-white"></iconify-icon>
+                    <span>Direct Node Access</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              class="animate-on-scroll [animation:animationIn_0.8s_ease-out_0.6s_both] p-8 rounded-[2rem] border border-white/5 bg-white/[0.02] flex flex-col relative group hover:border-white/10 transition-colors">
+              <div class="mb-2 text-neutral-300 font-medium tracking-tight">Enterprise</div>
+              <div class="mb-6 flex items-baseline gap-1">
+                <span class="text-4xl font-semibold text-white tracking-tight">Custom</span>
+              </div>
+              <p class="text-sm text-neutral-400 mb-8 leading-relaxed">For exchanges, institutions, and large-scale
+                protocols.</p>
+              <button
+                class="w-full py-3 rounded-full border border-white/10 text-white text-sm font-semibold hover:bg-white/5 transition-colors mb-8">Contact
+                Sales</button>
+              <div class="space-y-4">
+                <div class="flex items-center gap-3 text-sm text-neutral-400">
+                  <iconify-icon icon="lucide:check" class="text-white/60"></iconify-icon>
+                  <span>Unlimited Throughput</span>
+                </div>
+                <div class="flex items-center gap-3 text-sm text-neutral-400">
+                  <iconify-icon icon="lucide:check" class="text-white/60"></iconify-icon>
+                  <span>Dedicated Nodes</span>
+                </div>
+                <div class="flex items-center gap-3 text-sm text-neutral-400">
+                  <iconify-icon icon="lucide:check" class="text-white/60"></iconify-icon>
+                  <span>99.99% Uptime SLA</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SECTION: FAQ -->
+      <section class="relative bg-transparent text-white py-32 overflow-hidden border-b border-white/5" id="faq">
+        <div class="z-10 max-w-4xl mr-auto ml-auto px-6 relative">
+
+          <div class="text-center mb-16">
+            <h2
+              class="animate-on-scroll [animation:animationIn_0.8s_ease-out_0.2s_both] text-3xl md:text-4xl font-medium text-white tracking-tight mb-4">
+              Frequently Asked Questions
+            </h2>
+            <p
+              class="animate-on-scroll [animation:animationIn_0.8s_ease-out_0.3s_both] text-neutral-500 text-sm font-light">
+              Everything you need to know about the product and billing.
+            </p>
+          </div>
+
+          <!-- FAQ Accordion Container -->
+          <div class="space-y-4 animate-on-scroll [animation:animationIn_0.8s_ease-out_0.5s_both]">
+
+            <!-- Question 1 -->
+            <div
+              class="bg-[#050505]/40 backdrop-blur-sm border border-white/5 rounded-2xl p-6 hover:bg-white/[0.02] transition-colors cursor-pointer group">
+              <div class="flex justify-between items-center gap-4">
+                <h4 class="text-base font-medium text-white">Which blockchains are currently supported?</h4>
+                <iconify-icon icon="lucide:plus"
+                  class="text-neutral-500 group-hover:text-white transition-colors"></iconify-icon>
+              </div>
+              <!-- Hidden Content (Would normally toggle via JS, kept simple/visible for static demo or hidden natively) -->
+              <p class="text-sm text-neutral-400 mt-4 leading-relaxed font-light hidden">
+                BlockTrace natively supports Ethereum, Binance Smart Chain, Polygon, Arbitrum, Optimism, Solana, and
+                Avalanche. We are continuously indexing new layer-2 networks and app-chains.
+              </p>
+            </div>
+
+            <!-- Question 2 -->
+            <div
+              class="bg-[#050505]/40 backdrop-blur-sm border border-white/5 rounded-2xl p-6 hover:bg-white/[0.02] transition-colors cursor-pointer group">
+              <div class="flex justify-between items-center gap-4">
+                <h4 class="text-base font-medium text-white">How accurate is the AI entity resolution?</h4>
+                <iconify-icon icon="lucide:plus"
+                  class="text-neutral-500 group-hover:text-white transition-colors"></iconify-icon>
+              </div>
+              <p class="text-sm text-neutral-400 mt-4 leading-relaxed font-light hidden">
+                Our models run continuous heuristics combining on-chain behavior, off-chain data leaks, and known
+                exploit patterns, yielding an industry-leading 99.4% attribution accuracy rate.
+              </p>
+            </div>
+
+            <!-- Question 3 -->
+            <div
+              class="bg-[#050505]/40 backdrop-blur-sm border border-white/5 rounded-2xl p-6 hover:bg-white/[0.02] transition-colors cursor-pointer group">
+              <div class="flex justify-between items-center gap-4">
+                <h4 class="text-base font-medium text-white">Can we integrate the risk oracle into our smart contracts?
+                </h4>
+                <iconify-icon icon="lucide:plus"
+                  class="text-neutral-500 group-hover:text-white transition-colors"></iconify-icon>
+              </div>
+              <p class="text-sm text-neutral-400 mt-4 leading-relaxed font-light hidden">
+                Yes. Enterprise clients have access to our on-chain Risk Oracle, allowing smart contracts to
+                programmatically reject interactions from flagged addresses in real-time.
+              </p>
+            </div>
+
+            <!-- Question 4 -->
+            <div
+              class="bg-[#050505]/40 backdrop-blur-sm border border-white/5 rounded-2xl p-6 hover:bg-white/[0.02] transition-colors cursor-pointer group">
+              <div class="flex justify-between items-center gap-4">
+                <h4 class="text-base font-medium text-white">Do you offer custom SLA for high-throughput APIs?</h4>
+                <iconify-icon icon="lucide:plus"
+                  class="text-neutral-500 group-hover:text-white transition-colors"></iconify-icon>
+              </div>
+              <p class="text-sm text-neutral-400 mt-4 leading-relaxed font-light hidden">
+                Absolutely. Our Enterprise tier includes custom rate limits, dedicated RPC endpoints, and a 99.99%
+                uptime SLA guarantee backed by 24/7 technical support.
+              </p>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      <section class="relative py-32 bg-transparent overflow-hidden">
+        <div
+          class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-white/[0.03] rounded-full blur-[120px] pointer-events-none">
+        </div>
+        <div class="relative z-10 max-w-4xl mx-auto px-6 text-center">
+          <h2
+            class="animate-on-scroll [animation:animationIn_0.8s_ease-out_0.2s_both] text-5xl md:text-7xl font-medium text-white mb-8 tracking-tight">
+            Ready to verify the world?</h2>
+          <p
+            class="animate-on-scroll [animation:animationIn_0.8s_ease-out_0.3s_both] text-xl text-neutral-400 font-light max-w-2xl mx-auto mb-12">
+            Join the network of developers and validators building the foundation of digital trust.</p>
+          <div
+            class="animate-on-scroll [animation:animationIn_0.8s_ease-out_0.4s_both] flex flex-col sm:flex-row items-center justify-center gap-4">
+            <button
+              class="px-8 py-4 rounded-full bg-white text-black text-sm font-semibold tracking-tight hover:scale-105 transition-transform shadow-[0_0_30px_rgba(255,255,255,0.2)]">Start
+              Building</button>
+            <button
+              class="px-8 py-4 rounded-full bg-transparent border border-white/10 text-white text-sm font-semibold tracking-tight hover:bg-white/5 transition-colors flex items-center gap-2">
+              Read the Whitepaper
+              <iconify-icon icon="lucide:arrow-right" width="16" height="16"></iconify-icon>
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <!-- Footer moved inside main-content -->
+      <footer class="max-w-7xl mx-auto px-6 py-16 border-t border-white/5">
+        <!-- Footer Logos (Monotone) -->
+        <div class="mb-16">
+          <p class="text-center text-[10px] text-neutral-600 font-bold tracking-[0.2em] mb-10 uppercase">
+            Verified by Nodes at
+          </p>
+          <div
+            class="flex flex-wrap gap-8 md:gap-16 hover:grayscale-0 hover:opacity-100 transition-all duration-500 opacity-30 grayscale items-center justify-center">
+            <iconify-icon icon="simple-icons:ethereum" height="24" class="text-white"></iconify-icon>
+            <iconify-icon icon="simple-icons:binance" height="20" class="text-white"></iconify-icon>
+            <iconify-icon icon="simple-icons:chainlink" height="20" class="text-white"></iconify-icon>
+            <iconify-icon icon="simple-icons:coinbase" height="22" class="text-white"></iconify-icon>
+            <iconify-icon icon="simple-icons:polygon" height="20" class="text-white"></iconify-icon>
+          </div>
+        </div>
+
+        <!-- Footer Links and Copyright -->
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
+          <div>
+            <h3 class="text-white font-semibold mb-6 text-sm tracking-tight">Product</h3>
+            <ul class="space-y-3">
+              <li><a href="#protocol" class="text-neutral-500 hover:text-white text-sm transition-colors">Protocol</a>
+              </li>
+              <li><a href="#explorer" class="text-neutral-500 hover:text-white text-sm transition-colors">Explorer</a>
+              </li>
+              <li><a href="#governance"
+                  class="text-neutral-500 hover:text-white text-sm transition-colors">Governance</a></li>
+              <li><a href="#" onclick="showDashboard(); return false;"
+                  class="text-neutral-500 hover:text-white text-sm transition-colors flex items-center gap-2">
+                  Launch App <iconify-icon icon="lucide:external-link" width="12"></iconify-icon>
+                </a></li>
+            </ul>
+          </div>
+          <div>
+            <h3 class="text-white font-semibold mb-6 text-sm tracking-tight">Resources</h3>
+            <ul class="space-y-3">
+              <li><a href="#" class="text-neutral-500 hover:text-white text-sm transition-colors">Documentation</a></li>
+              <li><a href="#" class="text-neutral-500 hover:text-white text-sm transition-colors">API Reference</a></li>
+              <li><a href="#" class="text-neutral-500 hover:text-white text-sm transition-colors">Whitepaper</a></li>
+              <li><a href="#" class="text-neutral-500 hover:text-white text-sm transition-colors">Network Status</a>
+              </li>
+            </ul>
+          </div>
+          <div>
+            <h3 class="text-white font-semibold mb-6 text-sm tracking-tight">Organization</h3>
+            <ul class="space-y-3">
+              <li><a href="#" class="text-neutral-500 hover:text-white text-sm transition-colors">About Us</a></li>
+              <li><a href="#" class="text-neutral-500 hover:text-white text-sm transition-colors">Ecosystem</a></li>
+              <li><a href="#" class="text-neutral-500 hover:text-white text-sm transition-colors">Press Kit</a></li>
+              <li><a href="#" class="text-neutral-500 hover:text-white text-sm transition-colors">Contact</a></li>
+            </ul>
+          </div>
+          <div class="bg-white/[0.02] border border-white/5 rounded-3xl p-6">
+            <h3 class="text-white font-semibold mb-3 text-sm tracking-tight">Stay Updated</h3>
+            <p class="text-xs text-neutral-500 mb-4 leading-relaxed">Get the latest on protocol upgrades and network
+              security.</p>
+            <div class="flex gap-2">
+              <input type="email" placeholder="Email"
+                class="bg-white/5 border border-white/10 rounded-full px-3 py-2 text-xs w-full focus:outline-none focus:border-white/20">
+              <button class="bg-white/10 hover:bg-white/20 text-white rounded-full p-2 transition-colors">
+                <iconify-icon icon="lucide:arrow-right" width="16"></iconify-icon>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Copyright -->
+        <div class="border-t border-white/5 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+          <p class="text-neutral-600 text-[11px] font-medium uppercase tracking-widest">© 2026 BlockTrace. Protected by
+            Cryptographic Proof.</p>
+          <div class="flex items-center gap-8">
+            <a href="#" class="text-neutral-600 hover:text-white text-xs transition-colors">Terms</a>
+            <a href="#" class="text-neutral-600 hover:text-white text-xs transition-colors">Privacy</a>
+            <a href="#" class="text-neutral-400 hover:text-white transition-colors"><iconify-icon icon="simple-icons:x"
+                width="16"></iconify-icon></a>
+            <a href="#" class="text-neutral-400 hover:text-white transition-colors"><iconify-icon
+                icon="simple-icons:github" width="16"></iconify-icon></a>
+          </div>
+        </div>
+      </footer>
+    </div>
+  </div>
+  <!-- End Main Content -->
+
+  <!-- Dashboard Section (Hidden by default) -->
+  <div id="dashboard-section">
+    <iframe src="about:blank" class="w-full h-screen border-none" id="app-frame"></iframe>
+  </div>
+  <!-- End Dashboard Section -->
+</body>
+
+</html>

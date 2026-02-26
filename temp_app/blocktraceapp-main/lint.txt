@@ -1,0 +1,51 @@
+
+> blocktrace-app@0.0.0 lint
+> eslint .
+
+
+C:\Users\USER\Downloads\New folder (2)\blocktrace app\src\lib\antigravity.ts
+  139:33  error  The `Function` type accepts any function-like value.
+Prefer explicitly defining any function parameters and return type  @typescript-eslint/no-unsafe-function-type
+  144:54  error  The `Function` type accepts any function-like value.
+Prefer explicitly defining any function parameters and return type  @typescript-eslint/no-unsafe-function-type
+  215:95  error  Unexpected any. Specify a different type                                                                                 @typescript-eslint/no-explicit-any
+
+C:\Users\USER\Downloads\New folder (2)\blocktrace app\src\pages\Dashboard.tsx
+  101:13  error  Error: Calling setState synchronously within an effect can trigger cascading renders
+
+Effects are intended to synchronize state between React and external systems such as manually updating the DOM, state management libraries, or other platform APIs. In general, the body of an effect should do one or both of the following:
+* Update external systems with the latest state from React.
+* Subscribe for updates from some external system, calling setState in a callback function when external state changes.
+
+Calling setState synchronously within an effect body causes cascading renders that can hurt performance, and is not recommended. (https://react.dev/learn/you-might-not-need-an-effect).
+
+C:\Users\USER\Downloads\New folder (2)\blocktrace app\src\pages\Dashboard.tsx:101:13
+   99 |     useEffect(() => {
+  100 |         if (sessionId) {
+> 101 |             setData(get_dashboard_state(sessionId) as unknown as DashboardData);
+      |             ^^^^^^^ Avoid calling setState() directly within an effect
+  102 |         }
+  103 |     }, [sessionId]);
+  104 |                                 react-hooks/set-state-in-effect
+  106:9   error  Error: Calling setState synchronously within an effect can trigger cascading renders
+
+Effects are intended to synchronize state between React and external systems such as manually updating the DOM, state management libraries, or other platform APIs. In general, the body of an effect should do one or both of the following:
+* Update external systems with the latest state from React.
+* Subscribe for updates from some external system, calling setState in a callback function when external state changes.
+
+Calling setState synchronously within an effect body causes cascading renders that can hurt performance, and is not recommended. (https://react.dev/learn/you-might-not-need-an-effect).
+
+C:\Users\USER\Downloads\New folder (2)\blocktrace app\src\pages\Dashboard.tsx:106:9
+  104 |
+  105 |     useEffect(() => {
+> 106 |         setStreamConfig(get_stream_config());
+      |         ^^^^^^^^^^^^^^^ Avoid calling setState() directly within an effect
+  107 |         start_simulator();
+  108 |
+  109 |         const unsubTrace = subscribe('trace_updates', (e: { type: string, data: any }) => {  react-hooks/set-state-in-effect
+  109:81  error  Unexpected any. Specify a different type                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              @typescript-eslint/no-explicit-any
+  125:65  error  Unexpected any. Specify a different type                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              @typescript-eslint/no-explicit-any
+  271:62  error  Unexpected any. Specify a different type                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              @typescript-eslint/no-explicit-any
+
+✖ 8 problems (8 errors, 0 warnings)
+
