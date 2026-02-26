@@ -25,5 +25,5 @@ node_modules/
 *.swp
 *.swo
 
-# Temporary/Versioned files created during debugging
-app/index_v*.html
+# Versioned files (uncomment if you want to ignore them later)
+# app/index_v*.html
