@@ -220,8 +220,8 @@
         dashboard.classList.add('show');
         mainContent.classList.add('hide');
 
-        // Latest versioned file
-        iframe.src = './app/index_v3.html';
+        // Use standard path
+        iframe.src = './app/index.html';
 
         window.scrollTo(0, 0);
         document.body.style.overflow = 'hidden';
@@ -513,9 +513,9 @@
     </div>
 
     <!-- Main Content -->
-    <main class="z-10 max-w-7xl mr-auto ml-auto pt-12 pr-6 pb-32 pl-6 relative">
+    <main class="z-10 max-w-7xl mr-auto ml-auto pt-12 pr-6 pb-12 pl-6 relative">
       <!-- Hero Header -->
-      <div class="text-center max-w-5xl mr-auto mb-24 ml-auto">
+      <div class="text-center max-w-5xl mr-auto mb-12 ml-auto">
         <div
           class="animate-on-scroll [animation:animationIn_0.8s_ease-out_0.2s_both] inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/5 border border-white/10 text-neutral-300 text-xs font-semibold mb-8 animate">
           <span class="flex h-2 w-2 rounded-full bg-emerald-500 shadow-[0_0_10px_rgba(16,185,129,0.5)]"></span>
@@ -569,8 +569,7 @@
       </div>
 
       <!-- Dashboard / Bento Grid -->
-      <div class="relative grid grid-cols-1 md:grid-cols-12 gap-6 lg:gap-8 mt-16 mb-16 min-h-[500px] z-10"
-        id="explorer">
+      <div class="relative grid grid-cols-1 md:grid-cols-12 gap-6 lg:gap-8 mt-4 mb-8 min-h-[500px] z-10" id="explorer">
         <!-- Floating Label 01 -->
         <div
           class="animate-on-scroll [animation:animationIn_0.8s_ease-out_0.6s_both] absolute -left-12 top-0 text-xs font-mono text-neutral-700 hidden xl:block">
@@ -804,8 +803,8 @@
     <!-- Footer Logos (Monotone) -->
     <div
       class="animate-on-scroll [animation:animationIn_0.8s_ease-out_0.9s_both] border-t border-white/5 bg-[#050505]/40 backdrop-blur-sm">
-      <div class="max-w-7xl mr-auto ml-auto pt-16 pr-6 pb-16 pl-6">
-        <p class="text-center text-xs text-neutral-600 font-bold tracking-widest mb-10 uppercase">
+      <div class="max-w-7xl mr-auto ml-auto pt-8 pr-6 pb-8 pl-6">
+        <p class="text-center text-xs text-neutral-600 font-bold tracking-widest mb-6 uppercase">
           Verified by Nodes at
         </p>
         <div
@@ -827,9 +826,9 @@
         <div class="absolute right-1/3 top-0 bottom-0 w-px bg-white/5 hidden md:block"></div>
       </div>
 
-      <div class="max-w-7xl mx-auto px-6 py-24 relative z-10">
+      <div class="max-w-7xl mx-auto px-6 py-10 relative z-10">
         <!-- Section Header -->
-        <div class="text-center max-w-3xl mx-auto mb-20">
+        <div class="text-center max-w-3xl mx-auto mb-10">
           <div
             class="animate-on-scroll [animation:animationIn_0.8s_ease-out_0.2s_both] inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/5 border border-white/10 text-neutral-300 text-xs font-medium mb-8">
             Mission
@@ -1007,12 +1006,12 @@
         </div>
       </div>
 
-      <section class="relative bg-transparent text-white py-32 overflow-hidden border-b border-white/5" id="protocol">
+      <section class="relative bg-transparent text-white py-16 overflow-hidden border-b border-white/5" id="protocol">
         <div class="z-0 opacity-[0.15] absolute top-0 right-0 bottom-0 left-0"
           style="background-image: radial-gradient(#ffffff 0.5px, transparent 0.5px); background-size: 24px 24px"></div>
-        <div class="z-10 max-w-7xl mr-auto ml-auto pt-6 pr-6 pb-24 pl-6 relative">
+        <div class="z-10 max-w-7xl mr-auto ml-auto pt-6 pr-6 pb-12 pl-6 relative">
           <div
-            class="flex flex-col md:flex-row justify-between items-start md:items-end mb-24 text-[10px] md:text-xs font-mono text-neutral-500 uppercase tracking-[0.2em] gap-4">
+            class="flex flex-col md:flex-row justify-between items-start md:items-end mb-12 text-[10px] md:text-xs font-mono text-neutral-500 uppercase tracking-[0.2em] gap-4">
             <div class="flex items-center gap-2">
               <span class="text-white">02</span>
               <span class="w-12 h-px bg-white/10"></span>
@@ -1020,7 +1019,7 @@
             <div class="text-white/40">// SYSTEM ARCHITECTURE</div>
             <div class="hidden md:block text-right">PROTOCOL MECHANISM</div>
           </div>
-          <div class="text-center max-w-6xl mx-auto mb-32 relative">
+          <div class="text-center max-w-6xl mx-auto mb-16 relative">
             <h2 class="leading-[0.9] md:text-8xl lg:text-8xl text-5xl font-medium text-white mb-8 tracking-tight">
               The Architecture
               <span
@@ -1040,7 +1039,7 @@
             <div class="h-px bg-gradient-to-r from-transparent via-white to-transparent w-full"></div>
             <div class="w-2 h-2 rounded-full bg-white"></div>
           </div>
-          <div class="grid grid-cols-1 md:grid-cols-3 gap-16 md:gap-12 relative">
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-16 md:gap-8 relative">
             <div class="group relative">
               <div
                 class="absolute -top-12 left-0 text-xs font-mono text-neutral-700 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
@@ -1139,12 +1138,12 @@
         </div>
       </section>
       <!-- SECTION: Advanced Capabilities -->
-      <section class="relative bg-transparent text-white py-32 overflow-hidden border-b border-white/5"
+      <section class="relative bg-transparent text-white py-16 overflow-hidden border-b border-white/5"
         id="capabilities">
         <div class="z-10 max-w-7xl mr-auto ml-auto px-6 relative">
 
           <!-- Section Header -->
-          <div class="flex flex-col items-center text-center mb-20">
+          <div class="flex flex-col items-center text-center mb-10">
             <div
               class="animate-on-scroll [animation:animationIn_0.8s_ease-out_0.2s_both] inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/5 border border-white/10 text-neutral-300 text-xs font-medium mb-6">
               Platform Features
@@ -1210,7 +1209,7 @@
       </section>
 
       <!-- SECTION: Target Use Cases -->
-      <section class="relative bg-transparent text-white py-32 overflow-hidden border-b border-white/5" id="usecases">
+      <section class="relative bg-transparent text-white py-16 overflow-hidden border-b border-white/5" id="usecases">
 
         <!-- Decorative background elements -->
         <div
@@ -1222,7 +1221,7 @@
 
         <div class="z-10 max-w-7xl mr-auto ml-auto px-6 relative">
 
-          <div class="text-left mb-16 md:mb-24 flex flex-col md:flex-row justify-between items-end gap-8">
+          <div class="text-left mb-8 md:mb-12 flex flex-col md:flex-row justify-between items-end gap-8">
             <div class="max-w-2xl">
               <h2
                 class="animate-on-scroll [animation:animationIn_0.8s_ease-out_0.2s_both] md:text-6xl text-4xl font-medium text-white mb-6 tracking-tight">
@@ -1307,7 +1306,7 @@
       </section>
 
 
-      <section class="md:pb-32 overflow-hidden bg-transparent border-white/5 border-b pb-24 relative">
+      <section class="md:pb-16 overflow-hidden bg-transparent border-white/5 border-b pb-12 relative">
         <div class="z-10 max-w-7xl mx-auto px-6 relative">
           <section class="sm:px-6 lg:px-8 sm:py-10 md:py-12 max-w-7xl mr-auto ml-auto pt-8 pr-4 pb-8 pl-4">
             <div class="flex items-center justify-between">
@@ -1567,7 +1566,7 @@
           </section>
         </div>
         <div class="z-10 max-w-7xl mx-auto px-6 relative">
-          <div class="text-center max-w-3xl mx-auto mb-20">
+          <div class="text-center max-w-3xl mx-auto mb-10">
             <h2
               class="animate-on-scroll [animation:animationIn_0.8s_ease-out_0.2s_both] text-4xl md:text-5xl font-medium text-white mb-6 tracking-tight">
               Simple API pricing</h2>
@@ -1672,10 +1671,10 @@
       </section>
 
       <!-- SECTION: FAQ -->
-      <section class="relative bg-transparent text-white py-32 overflow-hidden border-b border-white/5" id="faq">
+      <section class="relative bg-transparent text-white py-16 overflow-hidden border-b border-white/5" id="faq">
         <div class="z-10 max-w-4xl mr-auto ml-auto px-6 relative">
 
-          <div class="text-center mb-16">
+          <div class="text-center mb-8">
             <h2
               class="animate-on-scroll [animation:animationIn_0.8s_ease-out_0.2s_both] text-3xl md:text-4xl font-medium text-white tracking-tight mb-4">
               Frequently Asked Questions
@@ -1751,7 +1750,7 @@
         </div>
       </section>
 
-      <section class="relative py-32 bg-transparent overflow-hidden">
+      <section class="relative py-16 bg-transparent overflow-hidden">
         <div
           class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-white/[0.03] rounded-full blur-[120px] pointer-events-none">
         </div>
@@ -1777,9 +1776,9 @@
       </section>
 
       <!-- Footer moved inside main-content -->
-      <footer class="max-w-7xl mx-auto px-6 py-16 border-t border-white/5">
+      <footer class="max-w-7xl mx-auto px-6 py-8 border-t border-white/5">
         <!-- Footer Logos (Monotone) -->
-        <div class="mb-16">
+        <div class="mb-8">
           <p class="text-center text-[10px] text-neutral-600 font-bold tracking-[0.2em] mb-10 uppercase">
             Verified by Nodes at
           </p>
@@ -1794,7 +1793,7 @@
         </div>
 
         <!-- Footer Links and Copyright -->
-        <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-8">
           <div>
             <h3 class="text-white font-semibold mb-6 text-sm tracking-tight">Product</h3>
             <ul class="space-y-3">
