@@ -27,3 +27,10 @@ node_modules/
 
 # Versioned files (uncomment if you want to ignore them later)
 # app/index_v*.html
+
+# Temporary and backup files
+index.backup.html
+lint.txt
+lint_errors.txt
+temp_app/blocktraceapp-main/lint.txt
+temp_app/blocktraceapp-main/lint_errors.txt
